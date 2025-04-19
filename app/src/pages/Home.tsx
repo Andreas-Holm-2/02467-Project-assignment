@@ -18,7 +18,7 @@ const Home = () => {
         Collaboration Cultures in Pop and Rap
       </Typography>
 
-      <Grid container spacing={5} sx={{ mt: 2, px: 8 }}>
+      <Grid container spacing={5} sx={{ mt: 2, px: 6 }}>
         {/* Data Paper */}
         <Grid item xs={12} md={6}>
           <Paper
