@@ -18,14 +18,13 @@ const Home = () => {
         Collaboration Cultures in Pop and Rap
       </Typography>
 
-      <Grid container spacing={3} sx={{ mt: 2 }}>
+      <Grid container spacing={5} sx={{ mt: 2, px: 8 }}>
         {/* Data Paper */}
         <Grid item xs={12} md={6}>
           <Paper
             elevation={3}
             sx={{
               p: 3,
-              m: 3,
               minHeight: 300,
               transition: "0.3s",
               "&:hover": {
@@ -69,7 +68,6 @@ const Home = () => {
             elevation={3}
             sx={{
               p: 3,
-              m: 3,
               minHeight: 300,
               transition: "0.3s",
               "&:hover": {
@@ -104,7 +102,16 @@ const Home = () => {
 
         {/* Justification / Why this topic */}
         <Grid item xs={12}>
-          <Paper elevation={2} sx={{ p: 3 }}>
+          <Paper
+            elevation={2}
+            sx={{
+              p: 3,
+              transition: "0.3s",
+              "&:hover": {
+                boxShadow: 3,
+              },
+            }}
+          >
             <Typography variant="h6" gutterBottom>
               Why This Topic?
             </Typography>
