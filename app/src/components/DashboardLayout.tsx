@@ -16,11 +16,14 @@ import HomeIcon from "@mui/icons-material/Home";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import HubIcon from "@mui/icons-material/Hub";
+import ShareIcon from "@mui/icons-material/Share"; // <- New icon for Netwulf
+import { Link } from "react-router-dom"; // <- For navigation
 
 const navItems = [
-  { text: "Home", icon: <HomeIcon /> },
-  { text: "Data", icon: <TableChartIcon /> },
-  { text: "Analytics", icon: <AnalyticsIcon /> },
+  { text: "Home", icon: <HomeIcon />, path: "/" },
+  { text: "Data", icon: <TableChartIcon />, path: "/data" },
+  { text: "Analytics", icon: <AnalyticsIcon />, path: "/analytics" },
+  { text: "Network Graph", icon: <ShareIcon />, path: "/netwulf" }, // <- New item
 ];
 
 const drawerWidth = 240;
@@ -45,8 +48,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
             boxSizing: "border-box",
-            backgroundColor: "#f3f4f6", // Light gray
-            color: "#1f2937", // Dark text
+            backgroundColor: "#f3f4f6",
+            color: "#1f2937",
             borderRight: "1px solid #e5e7eb",
           },
         }}
@@ -65,13 +68,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         <Divider sx={{ mb: 1, mx: 1.5 }} />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {navItems.map(({ text, icon }) => (
+            {navItems.map(({ text, icon, path }) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton component={Link} to={path}>
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     {React.cloneElement(icon, {
                       sx: {
-                        color: "#9ca3af", // Tailwind gray-400
+                        color: "#9ca3af",
                         fontSize: 22,
                       },
                     })}
@@ -86,7 +89,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <Box sx={{ flexGrow: 1 }}>
-        {/* AppBar (white, no overlap) */}
         <AppBar
           position="static"
           elevation={0}
