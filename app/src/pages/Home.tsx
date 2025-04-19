@@ -35,6 +35,9 @@ const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
                 boxShadow: 6,
               },
             }}
+            onClick={() => {
+              setSelectedIndex(1);
+            }}
           >
             <Typography variant="h6" gutterBottom>
               Dataset Overview
@@ -77,6 +80,9 @@ const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
               "&:hover": {
                 boxShadow: 6,
               },
+            }}
+            onClick={() => {
+              setSelectedIndex(2);
             }}
           >
             <Typography variant="h6" gutterBottom>
