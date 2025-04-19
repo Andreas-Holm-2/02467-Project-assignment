@@ -1,5 +1,4 @@
 import React from "react";
-import DashboardLayout from "../components/DashboardLayout";
 import {
   Paper,
   Typography,
@@ -11,9 +10,14 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
-const Home = () => {
+type HomeProps = {
+  selectedIndex: number;
+  setSelectedIndex: (index: number) => void;
+};
+
+const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
   return (
-    <DashboardLayout>
+    <Box>
       <Typography variant="h4" gutterBottom>
         Collaboration Cultures in Pop and Rap
       </Typography>
@@ -132,7 +136,7 @@ const Home = () => {
           </Paper>
         </Grid>
       </Grid>
-    </DashboardLayout>
+    </Box>
   );
 };
 

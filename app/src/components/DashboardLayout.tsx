@@ -12,24 +12,27 @@ import {
   CssBaseline,
   Divider,
 } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import AnalyticsIcon from "@mui/icons-material/Analytics";
-import TableChartIcon from "@mui/icons-material/TableChart";
 import HubIcon from "@mui/icons-material/Hub";
-
-const navItems = [
-  { text: "Home", icon: <HomeIcon /> },
-  { text: "Data", icon: <TableChartIcon /> },
-  { text: "Analytics", icon: <AnalyticsIcon /> },
-];
 
 const drawerWidth = 240;
 
-type DashboardLayoutProps = {
-  children: React.ReactNode;
+type NavItem = {
+  text: string;
+  icon: React.ReactElement;
+  JSX: React.ReactElement;
 };
 
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+type DashboardLayoutProps = {
+  navItems: NavItem[];
+  selectedIndex: number;
+  setSelectedIndex: (index: number) => void;
+};
+
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({
+  navItems,
+  selectedIndex,
+  setSelectedIndex,
+}) => {
   return (
     <Box
       sx={{ display: "flex", minHeight: "100vh", backgroundColor: "#f9fafb" }}
@@ -45,8 +48,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
             boxSizing: "border-box",
-            backgroundColor: "#f3f4f6", // Light gray
-            color: "#1f2937", // Dark text
+            backgroundColor: "#f3f4f6",
+            color: "#1f2937",
             borderRight: "1px solid #e5e7eb",
           },
         }}
@@ -65,16 +68,22 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         <Divider sx={{ mb: 1, mx: 1.5 }} />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {navItems.map(({ text, icon }) => (
+            {navItems.map(({ text, icon }, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton
+                  selected={index === selectedIndex}
+                  onClick={() => setSelectedIndex(index)}
+                >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    {React.cloneElement(icon, {
-                      sx: {
-                        color: "#9ca3af", // Tailwind gray-400
-                        fontSize: 22,
-                      },
-                    })}
+                    {React.isValidElement(icon) &&
+                      React.cloneElement(icon as React.ReactElement<any, any>, {
+                        sx: {
+                          color:
+                            index === selectedIndex ? "#1f2937" : "#9ca3af",
+                          fontSize: 22,
+                        },
+                      })}
+
                     <ListItemText primary={text} />
                   </Box>
                 </ListItemButton>
@@ -86,7 +95,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <Box sx={{ flexGrow: 1 }}>
-        {/* AppBar (white, no overlap) */}
+        {/* AppBar */}
         <AppBar
           position="static"
           elevation={0}
@@ -106,7 +115,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         </AppBar>
 
         {/* Page Content */}
-        <Box sx={{ p: 3 }}>{children}</Box>
+        <Box sx={{ p: 3 }}>{navItems[selectedIndex].JSX}</Box>
       </Box>
     </Box>
   );
