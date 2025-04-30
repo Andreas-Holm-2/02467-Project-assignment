@@ -1,4 +1,4 @@
-def netwulf_plot_communities(G, communities, color_palette=None, path="Network.pdf", figsize=20):
+def netwulf_plot_communities(G, communities, port, color_palette=None, path="Network.pdf", figsize=20):
     """
     Visualize a network with nodes colored by community.
     
@@ -62,7 +62,7 @@ def netwulf_plot_communities(G, communities, color_palette=None, path="Network.p
     }
 
     # Visualize without printing
-    network, _ = nw.visualize(G_copy, plot_in_cell_below=False, config=config)
+    network, _ = nw.visualize(G_copy, plot_in_cell_below=False, config=config, port=port)
 
     for node_data in network['nodes']:
         node_id = node_data['id']

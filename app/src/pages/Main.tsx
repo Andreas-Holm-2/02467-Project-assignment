@@ -14,9 +14,10 @@ import { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import HectorPage from "./HectorPage";
 
 const Main: React.FC = () => {
-  const [view, setView] = useState<"main" | "data">("main");
+  const [view, setView] = useState<"main" | "data" | "hector">("main");
   if (view !== "main") {
     let content = null;
 
@@ -25,6 +26,9 @@ const Main: React.FC = () => {
         content = <DataPage />;
         break;
 
+      case "hector": 
+        content = <HectorPage/>;
+        break;
       // Add other cases here as needed
       default:
         content = null;
@@ -168,6 +172,7 @@ const Main: React.FC = () => {
           <PaperWrapper
             elevation={3}
             onClick={() => {
+              setView("hector")
               console.log("not implemented");
             }}
             sx={{ minHeight: 300 }}
