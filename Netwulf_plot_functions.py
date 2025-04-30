@@ -35,9 +35,9 @@ def netwulf_plot_communities(G, communities, color_palette=None, path="Network.p
     for node, comm_id in communities.items():
         G_copy.nodes[node]['community'] = comm_id
         G_copy.nodes[node]['color'] = color_map[comm_id]
-
+    
     config = {
-        'zoom': 1,
+        'zoom': 0.8,
         'node_charge': -87,
         'node_gravity': 0.85,
         'link_distance': 15,
