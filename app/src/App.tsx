@@ -5,10 +5,12 @@ import DashboardLayout from "./components/DashboardLayout";
 import Home from "./pages/Home";
 import DataPage from "./pages/DataPage";
 import Analytics from "./pages/Analytics";
+import HectorPage from "./pages/HectorPage";
 
 import HomeIcon from "@mui/icons-material/Home";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import TableChartIcon from "@mui/icons-material/TableChart";
+import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -43,6 +45,11 @@ function App() {
           selectedIndex={selectedIndex}
         />
       ),
+    },
+    {
+      text: "Hector Page",
+      icon: <InsertEmoticonIcon />,
+      JSX: <HectorPage />,
     },
   ];
 
