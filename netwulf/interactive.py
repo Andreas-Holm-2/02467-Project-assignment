@@ -262,9 +262,10 @@ def visualize(network,
     prepare_visualization_directory()
 
     # create a json-file based on the current time
-    file_id = "tmp_{:x}".format(int(time.time()*1000)) + ".json"
+    file_id = "tmpgraph.json" #"tmp_{:x}".format(int(time.time()*1000)) + ".json"
     filename = file_id
     configname = "config_" + filename
+    print(filename)
 
     filepath = str(web_dir / filename)
     configpath = str(web_dir / configname)
