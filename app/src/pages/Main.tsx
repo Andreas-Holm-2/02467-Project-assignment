@@ -16,18 +16,25 @@ import DataPage from "./DataPage";
 
 const Main: React.FC = () => {
   const [view, setView] = useState<"main" | "data">("main");
-
   if (view !== "main") {
+    let content = null;
+
+    switch (view) {
+      case "data":
+        content = <DataPage />;
+        break;
+
+      // Add other cases here as needed
+      default:
+        content = null;
+    }
+
     return (
-      <Box
-        sx={{
-          minHeight: "400px",
-        }}
-      >
+      <Box sx={{ minHeight: "400px" }}>
         <IconButton onClick={() => setView("main")} sx={{ mb: 2 }}>
           <ArrowBackIcon />
         </IconButton>
-        {view === "data" ? <DataPage /> : null}
+        {content}
       </Box>
     );
   }
