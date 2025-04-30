@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Main: React.FC = () => {
   const [view, setView] = useState<"main" | "data">("main");
@@ -39,6 +40,57 @@ const Main: React.FC = () => {
     );
   }
 
+  interface PaperWrapperProps {
+    children: React.ReactNode;
+    elevation?: number;
+    onClick?: () => void;
+    sx?: object;
+  }
+
+  const PaperWrapper: React.FC<PaperWrapperProps> = ({
+    children,
+    elevation = 3,
+    onClick,
+    sx = {},
+  }) => {
+    const isClickable = Boolean(onClick);
+
+    return (
+      <Paper
+        elevation={elevation}
+        sx={{
+          p: 3,
+          position: "relative",
+          ...(isClickable && {
+            transition: "0.3s",
+            cursor: "pointer",
+            "&:hover": {
+              boxShadow: elevation + 3,
+            },
+          }),
+          ...sx,
+        }}
+        onClick={onClick}
+      >
+        {isClickable && (
+          <IconButton
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onClick) {
+                onClick();
+              }
+            }}
+            sx={{ position: "absolute", top: 8, right: 8 }}
+          >
+            <ArrowForwardIcon fontSize="small" />
+          </IconButton>
+        )}
+        {children}
+      </Paper>
+    );
+  };
+
   return (
     <Box>
       <Typography variant="h4" gutterBottom>
@@ -46,18 +98,9 @@ const Main: React.FC = () => {
       </Typography>
 
       <Grid container spacing={5} sx={{ mt: 2, px: 6 }}>
-        {/* Justification / Why this topic */}
+        {/* Why Section */}
         <Grid item xs={12} md={7}>
-          <Paper
-            elevation={2}
-            sx={{
-              p: 3,
-              transition: "0.3s",
-              "&:hover": {
-                boxShadow: 3,
-              },
-            }}
-          >
+          <PaperWrapper elevation={2}>
             <Typography variant="h6" gutterBottom>
               Why?
             </Typography>
@@ -73,7 +116,6 @@ const Main: React.FC = () => {
               connections, we explore how two major genres shape - and are
               shaped by - collaboration.
             </Typography>
-
             <Typography variant="body1" paragraph>
               Starting from a global dataset of over 150,000 artists, we refined
               our focus to Pop and Rap in North America - two genres often said
@@ -81,22 +123,15 @@ const Main: React.FC = () => {
               musical community, and how do collaboration patterns reflect
               cultural differences?
             </Typography>
-          </Paper>
+          </PaperWrapper>
         </Grid>
 
+        {/* Dataset Overview */}
         <Grid item xs={12} md={5}>
-          <Paper
+          <PaperWrapper
             elevation={3}
-            sx={{
-              p: 3,
-              minHeight: 300,
-              transition: "0.3s",
-              "&:hover": {
-                boxShadow: 6,
-              },
-              cursor: "pointer",
-            }}
             onClick={() => setView("data")}
+            sx={{ minHeight: 300 }}
           >
             <Typography variant="h6" gutterBottom>
               Dataset Overview
@@ -125,24 +160,17 @@ const Main: React.FC = () => {
                 </List>
               </Grid>
             </Grid>
-          </Paper>
+          </PaperWrapper>
         </Grid>
 
-        {/* Analytics Paper */}
+        {/* Graph Placeholder */}
         <Grid item xs={12}>
-          <Paper
+          <PaperWrapper
             elevation={3}
-            sx={{
-              p: 3,
-              minHeight: 300,
-              transition: "0.3s",
-              "&:hover": {
-                boxShadow: 6,
-              },
-            }}
             onClick={() => {
               console.log("not implemented");
             }}
+            sx={{ minHeight: 300 }}
           >
             <Typography variant="h6" gutterBottom>
               Dummy Graph Visualization
@@ -166,7 +194,7 @@ const Main: React.FC = () => {
               This space is reserved for your network graph (D3.js / vis.js
               etc.)
             </Typography>
-          </Paper>
+          </PaperWrapper>
         </Grid>
       </Grid>
     </Box>
