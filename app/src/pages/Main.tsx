@@ -15,9 +15,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HectorPage from "./HectorPage";
+import AndreasPage from "./Andreas";
+
 
 const Main: React.FC = () => {
-  const [view, setView] = useState<"main" | "data" | "hector">("main");
+  const [view, setView] = useState<"main" | "data" | "hector" | "Andreas">("main");
   if (view !== "main") {
     let content = null;
 
@@ -29,6 +31,10 @@ const Main: React.FC = () => {
       case "hector": 
         content = <HectorPage/>;
         break;
+
+        case "Andreas":
+          content = <AndreasPage/>;
+          break;
       // Add other cases here as needed
       default:
         content = null;
@@ -201,6 +207,14 @@ const Main: React.FC = () => {
             </Typography>
           </PaperWrapper>
         </Grid>
+
+      <Grid item xs={12} >
+      <PaperWrapper onClick={()=>{setView("Andreas")}}>
+                  dataset
+          </PaperWrapper>
+
+      </Grid>
+
       </Grid>
     </Box>
   );
