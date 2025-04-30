@@ -7,15 +7,31 @@ import {
   List,
   ListItem,
   ListItemText,
+  IconButton,
+  Grid,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { useState } from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import DataPage from "./DataPage";
 
-type HomeProps = {
-  selectedIndex: number;
-  setSelectedIndex: (index: number) => void;
-};
+const Main: React.FC = () => {
+  const [view, setView] = useState<"main" | "data">("main");
 
-const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
+  if (view !== "main") {
+    return (
+      <Box
+        sx={{
+          minHeight: "400px",
+        }}
+      >
+        <IconButton onClick={() => setView("main")} sx={{ mb: 2 }}>
+          <ArrowBackIcon />
+        </IconButton>
+        {view === "data" ? <DataPage /> : null}
+      </Box>
+    );
+  }
+
   return (
     <Box>
       <Typography variant="h4" gutterBottom>
@@ -34,10 +50,9 @@ const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
               "&:hover": {
                 boxShadow: 6,
               },
+              cursor: "pointer",
             }}
-            onClick={() => {
-              setSelectedIndex(1);
-            }}
+            onClick={() => setView("data")}
           >
             <Typography variant="h6" gutterBottom>
               Dataset Overview
@@ -82,7 +97,7 @@ const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
               },
             }}
             onClick={() => {
-              setSelectedIndex(2);
+              console.log("not implemented");
             }}
           >
             <Typography variant="h6" gutterBottom>
@@ -146,4 +161,4 @@ const Home: React.FC<HomeProps> = ({ selectedIndex, setSelectedIndex }) => {
   );
 };
 
-export default Home;
+export default Main;

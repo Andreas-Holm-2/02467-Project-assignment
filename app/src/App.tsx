@@ -1,64 +1,30 @@
-import { useState } from "react";
-
-import DashboardLayout from "./components/DashboardLayout";
-
-import Home from "./pages/Home";
-import DataPage from "./pages/DataPage";
-import Analytics from "./pages/Analytics";
-import HectorPage from "./pages/HectorPage";
-
-import HomeIcon from "@mui/icons-material/Home";
-import AnalyticsIcon from "@mui/icons-material/Analytics";
-import TableChartIcon from "@mui/icons-material/TableChart";
-import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
+import { Box, Paper } from "@mui/material";
+import Main from "./pages/Main";
 
 function App() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const navItems = [
-    {
-      text: "Home",
-      icon: <HomeIcon />,
-      JSX: (
-        <Home
-          setSelectedIndex={setSelectedIndex}
-          selectedIndex={selectedIndex}
-        />
-      ),
-    },
-    {
-      text: "Data",
-      icon: <TableChartIcon />,
-      JSX: (
-        <DataPage
-          setSelectedIndex={setSelectedIndex}
-          selectedIndex={selectedIndex}
-        />
-      ),
-    },
-    {
-      text: "Analytics",
-      icon: <AnalyticsIcon />,
-      JSX: (
-        <Analytics
-          setSelectedIndex={setSelectedIndex}
-          selectedIndex={selectedIndex}
-        />
-      ),
-    },
-    {
-      text: "Hector Page",
-      icon: <InsertEmoticonIcon />,
-      JSX: <HectorPage />,
-    },
-  ];
-
   return (
-    <DashboardLayout
-      navItems={navItems}
-      setSelectedIndex={setSelectedIndex}
-      selectedIndex={selectedIndex}
-    />
+    <Box
+      sx={{
+        minHeight: "100vh",
+        background: "linear-gradient(to right, #ece9e6, #ffffff)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 4,
+      }}
+    >
+      <Paper
+        elevation={3}
+        sx={{
+          maxWidth: "1000px",
+          width: "100%",
+          padding: 4,
+          borderRadius: 3,
+        }}
+      >
+        <Main />
+      </Paper>
+    </Box>
   );
 }
 
