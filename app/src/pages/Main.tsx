@@ -46,8 +46,45 @@ const Main: React.FC = () => {
       </Typography>
 
       <Grid container spacing={5} sx={{ mt: 2, px: 6 }}>
-        {/* Data Paper */}
-        <Grid item xs={12} md={6}>
+        {/* Justification / Why this topic */}
+        <Grid item xs={12} md={7}>
+          <Paper
+            elevation={2}
+            sx={{
+              p: 3,
+              transition: "0.3s",
+              "&:hover": {
+                boxShadow: 3,
+              },
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              Why?
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Music is more than sound - it's culture, identity, and connection.
+              We were curious: do Pop and Rap artists collaborate differently,
+              and what does that reveal about their communities?
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Driven by this question, we built a dataset of North American
+              artists and mapped their collaborations as a network. Each link
+              tells a story of artistic partnership, and through these
+              connections, we explore how two major genres shape - and are
+              shaped by - collaboration.
+            </Typography>
+
+            <Typography variant="body1" paragraph>
+              Starting from a global dataset of over 150,000 artists, we refined
+              our focus to Pop and Rap in North America - two genres often said
+              to differ in how artists connect. This let us ask: What defines a
+              musical community, and how do collaboration patterns reflect
+              cultural differences?
+            </Typography>
+          </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={5}>
           <Paper
             elevation={3}
             sx={{
@@ -92,7 +129,7 @@ const Main: React.FC = () => {
         </Grid>
 
         {/* Analytics Paper */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Paper
             elevation={3}
             sx={{
@@ -128,38 +165,6 @@ const Main: React.FC = () => {
             <Typography variant="caption" sx={{ mt: 1, display: "block" }}>
               This space is reserved for your network graph (D3.js / vis.js
               etc.)
-            </Typography>
-          </Paper>
-        </Grid>
-
-        {/* Justification / Why this topic */}
-        <Grid item xs={12}>
-          <Paper
-            elevation={2}
-            sx={{
-              p: 3,
-              transition: "0.3s",
-              "&:hover": {
-                boxShadow: 3,
-              },
-            }}
-          >
-            <Typography variant="h6" gutterBottom>
-              Why This Topic?
-            </Typography>
-            <Typography variant="body1" paragraph>
-              We chose to investigate collaboration cultures in Pop and Rap to
-              understand whether different genres foster distinct patterns of
-              cooperation between artists. Rap music is often said to have a
-              stronger collaboration culture, and we aim to test this using
-              network analysis.
-            </Typography>
-            <Typography variant="body1" paragraph>
-              By analyzing artist collaborations on Spotify, we hope to identify
-              genre-based subgroups, measure network connectivity, and explore
-              the themes common within these musical clusters. This study offers
-              insights into the structure of digital music culture through the
-              lens of computational social science.
             </Typography>
           </Paper>
         </Grid>
