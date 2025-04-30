@@ -4,9 +4,9 @@ import React from 'react';
 const NetworkGraphEmbed: React.FC = () => {
   return (
     <div>
-      <h1>Network Graph from Netwulf</h1>
+      <h1>POP Graph</h1>
       <iframe
-        src="http://127.0.0.1:8000"  // The URL where your Netwulf is running
+        src="http://localhost:9900/?data=tmpgraph.json&config=config_tmpgraph.json"  // The URL where your Netwulf is running
         width="100%"
         height="600px"
         title="Netwulf Network"
