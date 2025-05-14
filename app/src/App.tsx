@@ -1,6 +1,6 @@
 import { Box, Paper } from "@mui/material";
 import Main from "./pages/Main";
-import myImage from "./assets/background_image_green_spotify.jpg";
+import myImage from "./assets/image44.jpg";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           zIndex: 0,
+          opacity: 0.7,
         }}
       />
 
@@ -44,13 +45,13 @@ function App() {
         }}
       >
         <Paper
-          elevation={3}
+          elevation={10}
           sx={{
             maxWidth: "1000px",
             width: "100%",
             padding: 4,
             borderRadius: 3,
-            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
             backdropFilter: "blur(4px)",
           }}
         >
