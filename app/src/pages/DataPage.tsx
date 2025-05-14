@@ -17,6 +17,8 @@ import {
 
 import DownloadIcon from "@mui/icons-material/Download";
 import myImage from "../assets/Figure.png";
+import { DownloadDone } from "@mui/icons-material";
+import { PaperWrapper } from "../components/PaperWrapper";
 
 const DataPage: React.FC = () => {
   return (
@@ -25,10 +27,10 @@ const DataPage: React.FC = () => {
         Data Sources and Visualizations
       </Typography>
 
-      <Card elevation={2} sx={{ mb: 4 }}>
+      <PaperWrapper sx={{ mb: 4 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            Spotify Artist Collaboration Network
+            Spotify Artist Collaboration dataset
           </Typography>
           <Typography variant="body1" paragraph>
             The first dataset we used is the{" "}
@@ -40,7 +42,11 @@ const DataPage: React.FC = () => {
             >
               Spotify Artist Feature Collaboration Network on Kaggle
             </a>
-            . The dataset
+            . The dataset contains artist data for ~20k artists whose songs made
+            it to the Spotify weekly charts and ~136k additional artists who had
+            at least one feature with at least one of the chart artists. As a
+            result, the dataset is of very great size with a total ~156k artists
+            and ~300k collaborations.
           </Typography>
           <Typography variant="body1" paragraph>
             The dataset consists of a csv file containing the network nodes
@@ -65,6 +71,9 @@ const DataPage: React.FC = () => {
                     <TableCell>
                       <strong>Features</strong>
                     </TableCell>
+                    <TableCell>
+                      <strong>Download</strong>
+                    </TableCell>{" "}
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -77,6 +86,13 @@ const DataPage: React.FC = () => {
                       spotify_id, name, follower count, popularity, genres and
                       chart_hits
                     </TableCell>
+                    <TableCell>
+                      <Button
+                        color="inherit"
+                        startIcon={<DownloadIcon />}
+                        href="/downloads/nodes.csv"
+                      ></Button>
+                    </TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>edges.csv</TableCell>
@@ -87,45 +103,106 @@ const DataPage: React.FC = () => {
                       Two colums id_0 & id_1, each row represting a
                       collaboration between two artists.
                     </TableCell>
+                    <TableCell>
+                      {" "}
+                      <Button
+                        color="inherit"
+                        startIcon={<DownloadIcon />}
+                        href="/downloads/edges.csv"
+                      ></Button>
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
             </TableContainer>
           </Typography>
-          <Grid container spacing={2}>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                startIcon={<DownloadIcon />}
-                href="/downloads/nodes.csv"
-                download
-              >
-                Download nodes.csv
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                startIcon={<DownloadIcon />}
-                href="/downloads/edges.csv"
-                download
-              >
-                Download edges.csv
-              </Button>
-            </Grid>
-          </Grid>
+        </CardContent>
+      </PaperWrapper>
+
+      <PaperWrapper sx={{ mb: 4 }}>
+        <CardContent>
+          <Typography variant="h6" gutterBottom>
+            10.000 Most-Listened Artists within the US dataset
+          </Typography>
           <Typography variant="body1" paragraph>
-            In addition to . It maps collaborations between artists based on
-            song features.
+            Given the extensive size of the overall collaboration network, we
+            decided to narrow our focus by concentrating on the most-listened
+            artists within the United States. To achieve this, we incorporated
+            the{" "}
+            <a
+              href="https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "underline" }}
+            >
+              US Top 10K Artists and Their Popular Songs
+            </a>{" "}
+            dataset, also available on Kaggle. This allowed us to define a more
+            targeted scope for our analysis—prioritizing influential artists
+            while excluding lesser-known figures whose limited reach would
+            contribute minimally to our study of collaboration patterns.
+          </Typography>
+
+          <Typography variant="body1" paragraph>
+            The dataset consists of a csv file containing the network nodes
+            (corresponding to artists) and the network edges (each corresponding
+            to a collaboration between two artists)
+            <TableContainer component={Paper} sx={{ mt: 2 }}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                      <strong>File</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>File size</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Number of rows</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Number of columns</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Features</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Download</strong>
+                    </TableCell>{" "}
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>artists.csv</TableCell>
+                    <TableCell>1.18 MB</TableCell>
+                    <TableCell>9,487</TableCell>
+                    <TableCell>0</TableCell>
+                    <TableCell>
+                      Name, ID, Gender, Age, Country, Country, Genres,
+                      Popularity, Followers, URL
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        color="inherit"
+                        startIcon={<DownloadIcon />}
+                        href="/downloads/artists.csv"
+                      ></Button>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Typography>
         </CardContent>
-      </Card>
+      </PaperWrapper>
 
-      <Paper elevation={1} sx={{ p: 2 }}>
+      <PaperWrapper elevation={1} sx={{ p: 2 }}>
         <Typography variant="h6" gutterBottom>
           Network Visualization
+        </Typography>
+        <Typography variant="body1" paragraph>
+          The final network is then constructed as the intersection between the
+          two datasets described above. A visualization i shown below.
         </Typography>
         <Box
           component="img"
@@ -139,7 +216,12 @@ const DataPage: React.FC = () => {
             mt: 1,
           }}
         />
-      </Paper>
+        <Typography variant="body1" paragraph>
+          The image also displays the two subset witin the constructed network
+          that we will be focusing on. In particular, it is the the artists with
+          songs within the pop category and rap category.
+        </Typography>
+      </PaperWrapper>
     </Box>
   );
 };

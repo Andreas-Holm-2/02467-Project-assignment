@@ -17,6 +17,7 @@ import GraphPage from "./GraphPage";
 import ExplainerNBpage from "./ExplainerPage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Spotify_icon from "../assets/Spotify_icon.png";
+import RapNetwork from "../assets/network.png";
 
 const Main: React.FC = () => {
   const [view, setView] = useState<"main" | "data" | "Graph" | "Explainer">(
@@ -246,24 +247,17 @@ const Main: React.FC = () => {
               Network visualization
             </Typography>
             <Box
+              component="img"
+              src={RapNetwork}
+              alt="Rap Collaboration Network"
               sx={{
                 width: "100%",
                 height: 200,
-                background: "linear-gradient(135deg, #d1d5db, #f3f4f6)",
+                objectFit: "contain",
                 borderRadius: 2,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontStyle: "italic",
-                color: "#9ca3af",
+                backgroundColor: "#f3f4f6",
               }}
-            >
-              (Network graph placeholder)
-            </Box>
-            <Typography variant="caption" sx={{ mt: 1, display: "block" }}>
-              This space is reserved for your network graph (D3.js / vis.js
-              etc.)
-            </Typography>
+            />
           </PaperWrapper>
         </Grid>
 

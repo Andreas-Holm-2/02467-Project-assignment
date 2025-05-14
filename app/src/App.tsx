@@ -1,6 +1,6 @@
 import { Box, Paper } from "@mui/material";
 import Main from "./pages/Main";
-import myImage from "./assets/image44.jpg";
+import myImage from "./assets/Background_image_good.jpg";
 
 function App() {
   return (
