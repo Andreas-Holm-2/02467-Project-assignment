@@ -1,12 +1,16 @@
 import { Box, Paper } from "@mui/material";
 import Main from "./pages/Main";
+import backGroundImage from "./assets/background_image_green_spotify.jpg";
 
 function App() {
   return (
     <Box
       sx={{
         minHeight: "100vh",
-        background: "linear-gradient(to right, #ece9e6, #ffffff)",
+        backgroundImage: `url(${backGroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
