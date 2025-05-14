@@ -13,13 +13,13 @@ import {
 import { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
+import GraphPage from "./GraphPage";
+import ExplainerNBpage from "./ExplainerPage";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import HectorPage from "./HectorPage";
-import AndreasPage from "./Andreas";
 import Spotify_icon from "../assets/Spotify_icon.png";
 
 const Main: React.FC = () => {
-  const [view, setView] = useState<"main" | "data" | "hector" | "Andreas">(
+  const [view, setView] = useState<"main" | "data" | "Graph" | "Explainer">(
     "main"
   );
   if (view !== "main") {
@@ -30,12 +30,12 @@ const Main: React.FC = () => {
         content = <DataPage />;
         break;
 
-      case "hector":
-        content = <HectorPage />;
+      case "Graph":
+        content = <GraphPage />;
         break;
 
-      case "Andreas":
-        content = <AndreasPage />;
+      case "Explainer":
+        content = <ExplainerNBpage />;
         break;
       // Add other cases here as needed
       default:
@@ -72,12 +72,15 @@ const Main: React.FC = () => {
         elevation={elevation}
         sx={{
           p: 3,
+          borderRadius: 3,
+          height: "85%",
+          minHeight: 300,
           position: "relative",
+          transition: "box-shadow 0.3s",
           ...(isClickable && {
-            transition: "0.3s",
             cursor: "pointer",
             "&:hover": {
-              boxShadow: elevation + 3,
+              boxShadow: 8,
             },
           }),
           ...sx,
@@ -95,7 +98,7 @@ const Main: React.FC = () => {
             }}
             sx={{ position: "absolute", top: 8, right: 8 }}
           >
-            <ArrowForwardIcon fontSize="small" />
+            <ArrowForwardIcon fontSize="medium" />
           </IconButton>
         )}
         {children}
@@ -112,15 +115,7 @@ const Main: React.FC = () => {
       <Grid container spacing={5} sx={{ mt: 2, px: 6 }} alignItems="stretch">
         {/* Why Section */}
         <Grid item xs={12} md={7}>
-          <PaperWrapper
-            elevation={3}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              transition: "box-shadow 0.3s",
-              height: "85%", // 🔑 This ensures equal height
-            }}
-          >
+          <PaperWrapper>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Motivation Behind the Analysis
             </Typography>
@@ -167,14 +162,9 @@ const Main: React.FC = () => {
         <Grid item xs={12} md={5}>
           <PaperWrapper
             elevation={3}
-            sx={{
-              p: 3,
-              borderRadius: 3,
-              transition: "box-shadow 0.3s",
-              height: "85%", // 🔑 This ensures equal height
-              "&:hover": {
-                boxShadow: 6,
-              },
+            onClick={() => {
+              setView("data");
+              console.log("not implemented");
             }}
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
@@ -189,7 +179,7 @@ const Main: React.FC = () => {
                     Nodes
                   </Typography>
                   <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                    4,398
+                    8,756
                   </Typography>
                 </Box>
               </Grid>
@@ -200,7 +190,7 @@ const Main: React.FC = () => {
                     Edges
                   </Typography>
                   <Typography variant="h5" sx={{ fontWeight: 600 }}>
-                    1,704
+                    42,297
                   </Typography>
                 </Box>
               </Grid>
@@ -248,13 +238,12 @@ const Main: React.FC = () => {
           <PaperWrapper
             elevation={3}
             onClick={() => {
-              setView("hector");
+              setView("Graph");
               console.log("not implemented");
             }}
-            sx={{ minHeight: 300 }}
           >
-            <Typography variant="h6" gutterBottom>
-              Dummy Graph Visualization
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              Network visualization
             </Typography>
             <Box
               sx={{
@@ -280,11 +269,15 @@ const Main: React.FC = () => {
 
         <Grid item xs={12}>
           <PaperWrapper
+            elevation={3}
             onClick={() => {
-              setView("Andreas");
+              setView("Explainer");
+              console.log("not implemented");
             }}
           >
-            dataset
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              Explainer notebook
+            </Typography>{" "}
           </PaperWrapper>
         </Grid>
       </Grid>
