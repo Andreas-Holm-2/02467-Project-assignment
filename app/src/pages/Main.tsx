@@ -61,7 +61,7 @@ const Main: React.FC = () => {
 
   const PaperWrapper: React.FC<PaperWrapperProps> = ({
     children,
-    elevation = 3,
+    elevation = 0,
     onClick,
     sx = {},
   }) => {
@@ -73,14 +73,16 @@ const Main: React.FC = () => {
         sx={{
           p: 3,
           borderRadius: 3,
-          height: "85%",
           minHeight: 300,
           position: "relative",
+          backgroundColor: "rgba(255, 255, 255, 0.9)",
+          backdropFilter: "blur(6px)",
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
           transition: "box-shadow 0.3s",
           ...(isClickable && {
             cursor: "pointer",
             "&:hover": {
-              boxShadow: 8,
+              boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
             },
           }),
           ...sx,
@@ -92,9 +94,7 @@ const Main: React.FC = () => {
             size="small"
             onClick={(e) => {
               e.stopPropagation();
-              if (onClick) {
-                onClick();
-              }
+              onClick?.();
             }}
             sx={{ position: "absolute", top: 8, right: 8 }}
           >
