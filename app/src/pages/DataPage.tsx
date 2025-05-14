@@ -1,36 +1,89 @@
 import {
-  Paper,
-  Typography,
   Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  IconButton,
+  Typography,
   Grid,
+  Paper,
+  Button,
+  Divider,
+  Card,
+  CardContent,
 } from "@mui/material";
-
+import DownloadIcon from "@mui/icons-material/Download";
 import myImage from "../assets/Figure.png";
 
 const DataPage: React.FC = () => {
   return (
-    <Box>
-      <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>
-        The datasets we used:
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" gutterBottom sx={{ fontWeight: 700 }}>
+        Data Sources and Visualizations
       </Typography>
-      The first dataset we found was Spotify Artist Feature Collaboration
-      Network (available on kaggle) link to kaggle:
-      https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network?resource=download&fbclid=IwZXh0bgNhZW0CMTEAYnJpZBEwWHN3UGZOMWdyTjZDUkhPbAEeHaEefW9OZn5ZGH9mLporjUxCmCO7TpZl2B7GEfFMoXO_x4sDev2eCS7EWpY_aem_34VNBynImFYJ0hzOYo6HXQ
-      The nodes.csv is available for download *here* edges.csv is available for
-      downlaod *here*
-      <img
-        src={myImage}
-        alt="Description"
-        style={{ maxWidth: "100%", borderRadius: 8 }}
-      />
+
+      <Card elevation={2} sx={{ mb: 4 }}>
+        <CardContent>
+          <Typography variant="h6" gutterBottom>
+            Spotify Artist Collaboration Network
+          </Typography>
+          <Typography variant="body1" paragraph>
+            The first dataset we used is the{" "}
+            <a
+              href="https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "underline" }}
+            >
+              Spotify Artist Feature Collaboration Network on Kaggle
+            </a>
+            . It maps collaborations between artists based on song features.
+          </Typography>
+          <Typography variant="body1" paragraph>
+            The dataset consists of 
+          </Typography>
+          <Grid container spacing={2}>
+            <Grid item>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<DownloadIcon />}
+                href="/downloads/nodes.csv"
+                download
+              >
+                Download nodes.csv
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<DownloadIcon />}
+                href="/downloads/edges.csv"
+                download
+              >
+                Download edges.csv
+              </Button>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
+
+      <Paper elevation={1} sx={{ p: 2 }}>
+        <Typography variant="h6" gutterBottom>
+          Network Visualization
+        </Typography>
+        <Box
+          component="img"
+          src={myImage}
+          alt="Network Visualization"
+          sx={{
+            width: "100%",
+            maxHeight: 400,
+            objectFit: "contain",
+            borderRadius: 2,
+            mt: 1,
+          }}
+        />
+      </Paper>
     </Box>
   );
 };
 
 export default DataPage;
-
