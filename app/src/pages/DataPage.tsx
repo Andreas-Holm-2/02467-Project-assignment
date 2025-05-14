@@ -7,7 +7,14 @@ import {
   Divider,
   Card,
   CardContent,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
 } from "@mui/material";
+
 import DownloadIcon from "@mui/icons-material/Download";
 import myImage from "../assets/Figure.png";
 
@@ -33,10 +40,57 @@ const DataPage: React.FC = () => {
             >
               Spotify Artist Feature Collaboration Network on Kaggle
             </a>
-            . It maps collaborations between artists based on song features.
+            . The dataset
           </Typography>
           <Typography variant="body1" paragraph>
-            The dataset consists of 
+            The dataset consists of a csv file containing the network nodes
+            (corresponding to artists) and the network edges (each corresponding
+            to a collaboration between two artists)
+            <TableContainer component={Paper} sx={{ mt: 2 }}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                      <strong>File</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>File size</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Number of rows</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Number of columns</strong>
+                    </TableCell>
+                    <TableCell>
+                      <strong>Features</strong>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>nodes.csv</TableCell>
+                    <TableCell>9.98 MB</TableCell>
+                    <TableCell>156,422</TableCell>
+                    <TableCell>6</TableCell>
+                    <TableCell>
+                      spotify_id, name, follower count, popularity, genres and
+                      chart_hits
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>edges.csv</TableCell>
+                    <TableCell>13.82 MB</TableCell>
+                    <TableCell>300.386</TableCell>
+                    <TableCell>2</TableCell>
+                    <TableCell>
+                      Two colums id_0 & id_1, each row represting a
+                      collaboration between two artists.
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Typography>
           <Grid container spacing={2}>
             <Grid item>
@@ -62,6 +116,10 @@ const DataPage: React.FC = () => {
               </Button>
             </Grid>
           </Grid>
+          <Typography variant="body1" paragraph>
+            In addition to . It maps collaborations between artists based on
+            song features.
+          </Typography>
         </CardContent>
       </Card>
 
