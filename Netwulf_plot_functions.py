@@ -1,8 +1,4 @@
-import netwulf as nw
-import matplotlib.colors as mcolors
-import matplotlib.pyplot as plt
-
-def netwulf_plot_communities(G, communities, port, color_palette=None, path="Network.pdf", figsize=20):
+def netwulf_plot_communities(G, communities, color_palette=None, path="Network.pdf", zoom = 1, figsize=30):
     """
     Visualize a network with nodes colored by community.
     
@@ -19,6 +15,9 @@ def netwulf_plot_communities(G, communities, port, color_palette=None, path="Net
     figsize : int, optional
         Size of the figure
     """
+    import netwulf as nw
+    import matplotlib.colors as mcolors
+    import matplotlib.pyplot as plt
 
     if isinstance(communities, list):
         communities = {node: i for i, comm in enumerate(communities) for node in comm}
@@ -36,9 +35,9 @@ def netwulf_plot_communities(G, communities, port, color_palette=None, path="Net
     for node, comm_id in communities.items():
         G_copy.nodes[node]['community'] = comm_id
         G_copy.nodes[node]['color'] = color_map[comm_id]
-    
+
     config = {
-        'zoom': 0.7,
+        'zoom': zoom,
         'node_charge': -87,
         'node_gravity': 0.85,
         'link_distance': 15,
@@ -50,7 +49,7 @@ def netwulf_plot_communities(G, communities, port, color_palette=None, path="Net
         'node_label_color': '#000000',
         'display_node_labels': False,
         'scale_node_size_by_strength': True,
-        'node_size': 16.8,
+        'node_size': 13.8,
         'node_stroke_width': 1,
         'node_size_variation': 0.5,
         'link_color': '#2e2e2e',
@@ -63,7 +62,7 @@ def netwulf_plot_communities(G, communities, port, color_palette=None, path="Net
     }
 
     # Visualize without printing
-    network, _ = nw.visualize(G_copy, plot_in_cell_below=False, config=config, port=port)
+    network, _ = nw.visualize(G_copy, plot_in_cell_below=False, config=config)
 
     for node_data in network['nodes']:
         node_id = node_data['id']
