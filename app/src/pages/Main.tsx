@@ -80,7 +80,7 @@ const Main: React.FC = () => {
   const tocItems = [
     { label: "Motivation" },
     { label: "Introduction" },
-    { label: "Data" },
+    { label: "Dataset" },
     { label: "Network" },
     { label: "Zooming in on North American Artists" },
     { label: "North America Network" },
@@ -206,9 +206,7 @@ const Main: React.FC = () => {
       <DivideSection />
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
-        {/* Why Section */}
-
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={6}>
           <PaperWrapper>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Motivation
@@ -252,8 +250,53 @@ const Main: React.FC = () => {
             </Typography>
           </PaperWrapper>
         </Grid>
+        <Grid item xs={12} md={6}>
+          <PaperWrapper>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              Introduction
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              paragraph
+              sx={{ lineHeight: 1.7 }}
+            >
+              Initially using the global dataset we divided the dataset into two
+              subgroups. One containing artists participating mostly in pop and
+              rap, where mostly is defined as the genre which the given artist
+              had most occurences of in his/hers "genre" property from the
+              Global Dataset from Kaggle. Then working on these divded
+            </Typography>
 
-        <Grid item xs={12} md={5}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              paragraph
+              sx={{ lineHeight: 1.7 }}
+            >
+              Using this divided allowed for doing analysis in a global view
+              where it was found that collaboration most oftenly occured in
+              countries, however mostly in rap not as much in pop. Additionally
+              it was noticable that there existed a North American cluster i.e.
+              one containing artists from north america.
+            </Typography>
+
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              paragraph
+              sx={{ lineHeight: 1.7 }}
+            >
+              Diving into the North American clusters on both pop and rap we
+              carried out further analyiss using WordClouds to figure out music
+              differed which led to finding key differences between rap and pop
+            </Typography>
+          </PaperWrapper>
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
+        <Grid item xs={12} md={12}>
           <PaperWrapper
             elevation={3}
             onClick={() => {
@@ -262,7 +305,7 @@ const Main: React.FC = () => {
             }}
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Dataset Overview
+              Dataset
             </Typography>
 
             {/* Stats Section */}
@@ -393,13 +436,11 @@ const Main: React.FC = () => {
               }}
             />
 
-            <Divider sx={{ mb: 3 }} />
-
             <Typography
               variant="body2"
               color="text.secondary"
               paragraph
-              sx={{ lineHeight: 1.7 }}
+              sx={{ lineHeight: 1.7, mt: 2 }}
             >
               The Rap network reveals clear and well-separated nationality
               clusters. Distinct groups of <em>North American</em>,{" "}
