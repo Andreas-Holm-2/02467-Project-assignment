@@ -68,25 +68,34 @@ def plot_degree_distribution_log_log_scale(G):
     import numpy as np
     import matplotlib.pyplot as plt
 
+    # Suppress numpy divide by zero warnings
+    np.seterr(divide='ignore', invalid='ignore')
+
     degrees = [d for _, d in G.degree()]
     unique_degrees, counts = np.unique(degrees, return_counts=True)
     prob = counts / counts.sum()
-    
-    plt.figure(figsize=(10, 6), dpi=400)
-    plt.scatter(unique_degrees, prob, color='b', label='Observed', alpha=0.7)
-    
-    gamma, log_C = np.polyfit(np.log(unique_degrees[unique_degrees > 1]), 
-                              np.log(prob[unique_degrees > 1]), 1)
+
+    # Filter degrees > 1 to avoid log(0) or log(1)
+    mask = unique_degrees > 1
+    x = unique_degrees[mask]
+    y = prob[mask]
+
+    # Fit to power-law
+    gamma, log_C = np.polyfit(np.log(x), np.log(y), 1)
     C = np.exp(log_C)
     
-    print(f"Power-law exponent: {-gamma:.3f}")    
+    print(f"Power-law exponent: {-gamma:.3f}")  # Keep only this output
 
-    plt.plot(unique_degrees, C * unique_degrees ** gamma, 'k-', label=r'Power law $P(k) \sim k^{-\gamma}$')
-    
+    # Plot
+    plt.figure(figsize=(10, 6), dpi=400)
+    plt.scatter(unique_degrees, prob, color='b', label='Observed', alpha=0.7)
+    plt.plot(x, C * x ** gamma, 'k-', label=r'Power law $P(k) \sim k^{-\gamma}$')
+
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("degree, k")
     plt.ylabel("P(k)")
     plt.legend()
-    plt.title("Degree distribution of pop network")
+    plt.title("Degree distribution of input network")
     plt.show()
+
