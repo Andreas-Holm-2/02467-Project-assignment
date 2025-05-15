@@ -18,12 +18,18 @@ import {
 import { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
+import Analysis_NA_page from "./Network_analysis";
 import GraphPage from "./GraphPage";
 import ExplainerNBpage from "./ExplainerPage";
 import Spotify_icon from "../assets/Spotify_icon.png";
 import RapNetwork from "../assets/network.png";
 import { PaperWrapper } from "../components/PaperWrapper";
 import CommunityCountryImage from "../assets/communitiies_showing_country.png";
+import AssortativityPOP from "../assets/assort_pop.png";
+import AssortativityRAP from "../assets/assort_rap.png";
+import ModularityPOP from "../assets/mod_pop.png";
+import ModularityRAP from "../assets/mod_rap.png";
+
 import Pop1Cloud from "../assets/pop_community_1.png";
 import Pop2Cloud from "../assets/pop_community_2.png";
 import Rap1Cloud from "../assets/rap_community_1.png";
@@ -44,7 +50,7 @@ const DivideSection = () => {
 };
 
 const Main: React.FC = () => {
-  const [view, setView] = useState<"main" | "data" | "Graph" | "Explainer">(
+  const [view, setView] = useState<"main" | "data" | "Graph" | "Explainer" | "Analysis_NA_page">(
     "main"
   );
   if (view !== "main") {
@@ -62,13 +68,16 @@ const Main: React.FC = () => {
       case "Explainer":
         content = <ExplainerNBpage />;
         break;
+      case "Analysis_NA_page":
+        content = <Analysis_NA_page />;
+        break;
       // Add other cases here as needed
       default:
         content = null;
     }
 
     return (
-      <Box sx={{ minHeight: "400px" }}>
+      <Box sx={{ minHeight: "400px"}}>
         <IconButton onClick={() => setView("main")} sx={{ mb: 2 }}>
           <ArrowBackIcon />
         </IconButton>
@@ -77,131 +86,131 @@ const Main: React.FC = () => {
     );
   }
 
-  const tocItems = [
-    { label: "Motivation" },
-    { label: "Introduction" },
-    { label: "Dataset" },
-    { label: "Network" },
-    { label: "Zooming in on North American Artists" },
-    { label: "North America Network" },
-    { label: "Word Clouds" },
-    { label: "Discussion" },
-    { label: "Summarized Results" },
-  ];
+      const tocItems = [
+        { label: "Motivation" },
+        { label: "Introduction" },
+        { label: "Dataset" },
+        { label: "Network" },
+        { label: "Zooming in on North American Artists" },
+        { label: "North America Network" },
+        { label: "Word Clouds" },
+        { label: "Discussion" },
+        { label: "Summarized Results" },
+      ];
 
-  return (
-    <Box>
-      <Box sx={{ px: 6, mt: 4 }}>
-        <Box
-          sx={{
-            textAlign: "center",
-            py: 8,
-            px: 4,
-            background: "linear-gradient(135deg, #e8f0ff, #ffe4ec)",
-            borderRadius: 4,
-            boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
-          }}
-        >
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: 800,
-              color: "#1a1a1a",
-              mb: 2,
-              fontSize: { xs: "2rem", md: "3rem" },
-            }}
-          >
-            Pop vs. Rap: Exploring Collaboration Patterns
-          </Typography>
+      return (
+        <Box >
+          <Box sx={{ px: 6, mt: 4 }}>
+            <Box
+              sx={{
+                textAlign: "center",
+                py: 8,
+                px: 4,
+                background: "linear-gradient(135deg, #e8f0ff, #ffe4ec)",
+                borderRadius: 4,
+                boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+              }}
+            >
+              <Typography
+                variant="h2"
+                sx={{
+                  fontWeight: 800,
+                  color: "#1a1a1a",
+                  mb: 2,
+                  fontSize: { xs: "2rem", md: "3rem" },
+                }}
+              >
+                Pop vs. Rap: Exploring Collaboration Patterns
+              </Typography>
 
-          <Typography
-            variant="subtitle1"
-            sx={{
-              color: "text.secondary",
-              maxWidth: "700px",
-              mx: "auto",
-              fontSize: { xs: "1rem", md: "1.25rem" },
-            }}
-          >
-            A data-driven exploration of how two iconic music genres build and
-            bridge communities through collaboration.
-          </Typography>
-        </Box>
-      </Box>
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  color: "text.secondary",
+                  maxWidth: "700px",
+                  mx: "auto",
+                  fontSize: { xs: "1rem", md: "1.25rem" },
+                }}
+              >
+                A data-driven exploration of how two iconic music genres build and
+                bridge communities through collaboration.
+              </Typography>
+            </Box>
+          </Box>
 
-      <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
-        <Grid
-          item
-          xs={12}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <PaperWrapper sx={{ width: "100%" }}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Welcome! Here's What We Cover 😊
-            </Typography>
+          <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <PaperWrapper sx={{ width: "100%" }}>
+                <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+                  Welcome! Here's What We Cover 😊
+                </Typography>
 
-            <List disablePadding sx={{ mt: 2 }}>
-              {tocItems.map((item, idx) => (
-                <React.Fragment key={idx}>
-                  <ListItem
-                    disableGutters
-                    sx={{
-                      py: 1.5,
-                      pl: 2,
-                      pr: 1,
-                      borderRadius: 2,
-                      alignItems: "center",
-                      display: "flex",
-                      transition: "background-color 0.2s ease",
-                      "&:hover": {
-                        backgroundColor: "rgba(0, 0, 0, 0.04)",
-                      },
-                    }}
-                  >
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontWeight: 600,
-                        width: 24,
-                        color: "text.secondary",
-                        mr: 1.5,
-                        textAlign: "right",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {idx + 1}.
-                    </Typography>
+                <List disablePadding sx={{ mt: 2 }}>
+                  {tocItems.map((item, idx) => (
+                    <React.Fragment key={idx}>
+                      <ListItem
+                        disableGutters
+                        sx={{
+                          py: 1.5,
+                          pl: 2,
+                          pr: 1,
+                          borderRadius: 2,
+                          alignItems: "center",
+                          display: "flex",
+                          transition: "background-color 0.2s ease",
+                          "&:hover": {
+                            backgroundColor: "rgba(0, 0, 0, 0.04)",
+                          },
+                        }}
+                      >
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            fontWeight: 600,
+                            width: 24,
+                            color: "text.secondary",
+                            mr: 1.5,
+                            textAlign: "right",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {idx + 1}.
+                        </Typography>
 
-                    <ListItemText
-                      primary={item.label}
-                      primaryTypographyProps={{
-                        variant: "subtitle2",
-                        sx: {
-                          fontWeight: 500,
-                          color: "text.secondary",
-                          lineHeight: 1.7,
-                          fontSize: "0.95rem", // slightly larger than body2, but smaller than body1
-                        },
-                      }}
-                    />
-                  </ListItem>
+                        <ListItemText
+                          primary={item.label}
+                          primaryTypographyProps={{
+                            variant: "subtitle2",
+                            sx: {
+                              fontWeight: 500,
+                              color: "text.secondary",
+                              lineHeight: 1.7,
+                              fontSize: "0.95rem", // slightly larger than body2, but smaller than body1
+                            },
+                          }}
+                        />
+                      </ListItem>
 
-                  {idx < tocItems.length - 1 && (
-                    <Divider
-                      variant="inset"
-                      component="li"
-                      sx={{ ml: 4, borderColor: "#e0e0e0" }}
-                    />
-                  )}
-                </React.Fragment>
-              ))}
-            </List>
-          </PaperWrapper>
-        </Grid>
-      </Grid>
+                      {idx < tocItems.length - 1 && (
+                        <Divider
+                          variant="inset"
+                          component="li"
+                          sx={{ ml: 4, borderColor: "#e0e0e0" }}
+                        />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </List>
+              </PaperWrapper>
+            </Grid>
+          </Grid>
 
       <DivideSection />
 
@@ -608,10 +617,34 @@ const Main: React.FC = () => {
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
         <Grid item xs={12}>
-          <PaperWrapper>
+          <PaperWrapper onClick={()=> {
+            setView("Analysis_NA_page");
+
+          }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Hectors Statistics modularity, assortiativity mv.
+              Analyzing the North American networks
+              <Typography>
+                Up until now we've considered the network and its communities across countries as an entirety. 
+                Therefore, to go more in depth with our network analysis, we zoom in on the North American cluster in both graphs.
+              </Typography>
+              <Typography>
+                Click here to read more about our analysis :) 
+              </Typography>
+              <Box
+              component="img"
+              src={AssortativityPOP}
+              alt="Communities by country"
+              sx={{
+                width: "100%",
+                maxHeight: 400,
+                objectFit: "contain",
+                borderRadius: 2,
+                backgroundColor: "#f3f4f6", // optional
+                mt: 2,
+              }}
+              />
             </Typography>
+            
           </PaperWrapper>
         </Grid>
       </Grid>
