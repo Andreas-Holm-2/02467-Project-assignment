@@ -232,7 +232,7 @@ def plot_wordcloud(tf_idf_df, top_communities, community_to_top_3_authors, n=100
     cols = 3  # You can change this default
     rows = math.ceil(num_communities / cols)
 
-    fig, axes = plt.subplots(rows, cols, figsize=(6 * cols, 5 * rows))
+    fig, axes = plt.subplots(rows, cols, figsize=(6 * cols, 5.5 * rows))  # Slightly taller plots
     axes = axes.flatten()
 
     for idx, community in enumerate(top_communities["community"]):
@@ -255,6 +255,7 @@ def plot_wordcloud(tf_idf_df, top_communities, community_to_top_3_authors, n=100
         axes[j].axis("off")
 
     plt.tight_layout()
+    plt.subplots_adjust(hspace=0.6)  # Try 0.7 or 0.8 if needed
     plt.show()
 
 def run_tf_idf_wordcloud_analysis(artists_df, G, verbose=True, log_power = 1):
