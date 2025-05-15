@@ -105,8 +105,8 @@ def apply_louvain(G, verbose=True):
     sorted_communities = sorted(communities.items(), key=lambda x: len(x[1]), reverse=True)
     return sorted_communities
         
-def get_community_subgraph(G, community_id):
-    nodes_in_community = [n for n, attr in G.nodes(data=True) if attr.get('community') == community_id]
+def get_community_subgraph(G, community_id, communities):
+    nodes_in_community = [node for node in G.nodes() if communities[node] == community_id]
     
     subgraph = G.subgraph(nodes_in_community).copy()
     
