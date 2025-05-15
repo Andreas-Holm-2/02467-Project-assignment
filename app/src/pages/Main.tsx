@@ -20,7 +20,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DataPage from "./DataPage";
 import GraphPage from "./GraphPage";
 import ExplainerNBpage from "./ExplainerPage";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Spotify_icon from "../assets/Spotify_icon.png";
 import RapNetwork from "../assets/network.png";
 import { PaperWrapper } from "../components/PaperWrapper";
@@ -98,7 +97,7 @@ const Main: React.FC = () => {
         >
           <PaperWrapper sx={{ width: "100%" }}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Table of Contents
+              Welcome! Here's What We Cover 😊
             </Typography>
 
             <List disablePadding sx={{ mt: 2 }}>
