@@ -121,11 +121,10 @@ const Analysis_NA_page: React.FC = () => {
               <Box>
 
                 <Typography variant="body1" paragraph>
-                  The dataset consists of a csv file containing the network nodes
-                  (corresponding to artists) and the network edges (each corresponding
-                  to a collaboration between two artists)
+                  Assortativity by attribute "popularity" was also computed, which did not showing a significant difference. 
+                  However, this inspired us to look into how the "popularity" attribute correlates with node-degree count. 
                   <TableContainer component={Paper} sx={{
-                      mt: 2,
+                      mt: 3,
                       width: "75%",       // Shrinks the container to fit table contents
                       mx: "auto",                 // Centers it horizontally
                       px: 2,                      // Optional: padding inside the paper
@@ -160,6 +159,14 @@ const Analysis_NA_page: React.FC = () => {
                 </Typography>
 
               </Box>
+            </Typography>
+            <Typography>
+              Both POP and RAP show some correlation between popularity and out-degree. 
+              However, there is a higher correlation between the two metrics in the RAP network, highlighting that 
+              popularity is more tied to number of collaborations, suggesting that popularity might be more 
+              network driven in the RAP genre. In the POP network the correlation is weaker, which could imply 
+              that popularity may be more dependent on external factors, such as marketing, labels or solo success, 
+              rather than collaborations.
             </Typography>
             
         </PaperWrapper>
