@@ -32,7 +32,7 @@ export const PaperWrapper: React.FC<PaperWrapperProps> = ({
         ...(isClickable && {
           cursor: "pointer",
           "&:hover": {
-            boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.2)",
+            filter: "brightness(0.95)",
           },
         }),
         ...sx,
