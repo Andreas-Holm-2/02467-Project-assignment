@@ -291,7 +291,41 @@ const Main: React.FC = () => {
       </Grid>
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
-        <Grid item xs={12}>
+        {/* Graph Placeholder */}
+        <Grid item xs={6}>
+          <PaperWrapper
+            elevation={3}
+            onClick={() => {
+              setView("Graph");
+              console.log("not implemented");
+            }}
+          >
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              Network
+            </Typography>
+            <Box
+              component="img"
+              src={RapNetwork}
+              alt="Rap Collaboration Network"
+              sx={{
+                width: "100%",
+                height: 200,
+                objectFit: "contain",
+                borderRadius: 2,
+                backgroundColor: "#f3f4f6",
+              }}
+            />
+
+            <Typography>
+              <span style={{ color: "red" }}>
+                {" "}
+                MANGLER ALT MULIGT INTRO. F.eks. Nodes/Edges{" "}
+              </span>
+            </Typography>
+          </PaperWrapper>
+        </Grid>
+
+        <Grid item xs={6}>
           <PaperWrapper>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Network Statistics
@@ -594,34 +628,7 @@ const Main: React.FC = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
-        {/* Graph Placeholder */}
-        <Grid item xs={12}>
-          <PaperWrapper
-            elevation={3}
-            onClick={() => {
-              setView("Graph");
-              console.log("not implemented");
-            }}
-          >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Network visualization
-            </Typography>
-            <Box
-              component="img"
-              src={RapNetwork}
-              alt="Rap Collaboration Network"
-              sx={{
-                width: "100%",
-                height: 200,
-                objectFit: "contain",
-                borderRadius: 2,
-                backgroundColor: "#f3f4f6",
-              }}
-            />
-          </PaperWrapper>
-        </Grid>
-
+      <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
         <Grid item xs={12}>
           <PaperWrapper
             elevation={3}
