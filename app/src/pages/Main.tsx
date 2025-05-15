@@ -79,16 +79,55 @@ const Main: React.FC = () => {
 
   const tocItems = [
     { label: "Motivation" },
-    { label: "Dataset" },
-    { label: "Statistics" },
-    { label: "Explainer Notebook" },
+    { label: "Introduction" },
+    { label: "Data" },
+    { label: "Network" },
+    { label: "Zooming in on North American Artists" },
+    { label: "North America Network" },
+    { label: "Word Clouds" },
+    { label: "Discussion" },
+    { label: "Summarized Results" },
   ];
 
   return (
     <Box>
-      <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>
-        American Pop vs. Rap: Exploring Collaboration patterns
-      </Typography>
+      <Box sx={{ px: 6, mt: 4 }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            py: 8,
+            px: 4,
+            background: "linear-gradient(135deg, #e8f0ff, #ffe4ec)",
+            borderRadius: 4,
+            boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              color: "#1a1a1a",
+              mb: 2,
+              fontSize: { xs: "2rem", md: "3rem" },
+            }}
+          >
+            Pop vs. Rap: Exploring Collaboration Patterns
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: "text.secondary",
+              maxWidth: "700px",
+              mx: "auto",
+              fontSize: { xs: "1rem", md: "1.25rem" },
+            }}
+          >
+            A data-driven exploration of how two iconic music genres build and
+            bridge communities through collaboration.
+          </Typography>
+        </Box>
+      </Box>
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
         <Grid
@@ -624,6 +663,16 @@ const Main: React.FC = () => {
                 </Typography>
               </Grid>
             </Grid>
+          </PaperWrapper>
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
+        <Grid item xs={12}>
+          <PaperWrapper elevation={3}>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              Summarized Results{" "}
+            </Typography>{" "}
           </PaperWrapper>
         </Grid>
       </Grid>
