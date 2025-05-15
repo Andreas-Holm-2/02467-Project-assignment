@@ -174,8 +174,6 @@ def print_top_5_TF_per_community(tf_df):
     top_5_per_community_sorted = top_5_per_community.sort_values(["community"]) # sort such we get the terms 
     # for each community next to each other. Easier when printing
 
-    print(f"{len(top_5_per_community_sorted)} terms")
-
     for i in range(0,len(top_5_per_community_sorted),5):
         print(f"Community: {top_5_per_community_sorted.iloc[i]["community"]}, 5 Terms: {top_5_per_community_sorted[i: i+5]["tokens"].to_list()}")
 
@@ -187,8 +185,6 @@ def print_top_10_tf_idf_tokens(tf_idf_df):
 
     top_10_per_community_sorted = top_10_per_community.sort_values(["community"]) # sort such we get the terms 
     # for each community next to each other. Easier when printing
-
-    print(f"{len(top_10_per_community_sorted)} terms")
 
     for i in range(0, len(top_10_per_community_sorted), 10):
         print(f"Community: {top_10_per_community_sorted.iloc[i]["community"]}, 10 Terms: {top_10_per_community_sorted[i: i+10]["tokens"].to_list()}")
@@ -258,39 +254,29 @@ def plot_wordcloud(tf_idf_df, top_communities, community_to_top_3_authors, n=100
     plt.subplots_adjust(hspace=0.6)  # Try 0.7 or 0.8 if needed
     plt.show()
 
-def run_tf_idf_wordcloud_analysis(artists_df, G, verbose=True, log_power = 1):
+def run_tf_idf_wordcloud_analysis(
+    artists_df, G, communities, verbose=True,
+    log_power=1, genre="Pop", graf_name="G_pop_NA", is_north_american=True
+):
     artists_df_prepared = artists_df.copy()
     artists_df_prepared = artists_df_prepared.dropna()
     artists_df_prepared = clean_lyrics_and_apply_representative_text(artists_df_prepared)
-    artists_df_prepared  = tokenize(artists_df_prepared)
+    artists_df_prepared = tokenize(artists_df_prepared)
     artists_df_prepared = filter_for_english_language(artists_df_prepared)
         
     G_copy = G.copy() 
-    communities = community_louvain.best_partition(G_copy)
+    names = set(artists_df_prepared["name"])
     
     if verbose:
-        print(f"\n Applying word cloud analysis on dataframe containing {len(artists_df)} artists")
-
-        community_counts = Counter(communities.values())
-        print("Top 10 communities by size:")
-        for i, (community_id, count) in enumerate(community_counts.most_common(10), 1):
-            print(f"{i}. Community {community_id}: {count} nodes")
-        
-        amounts_of_artists_with_lyrics = 0
-    
-        names = set(artists_df_prepared["name"])
-        
+        amounts_of_artists_with_lyrics = 0 
         for node in G_copy.nodes():
             if node in names:
                 amounts_of_artists_with_lyrics += 1
                 
-        print(f"There exists {amounts_of_artists_with_lyrics}/{len(G_copy.nodes())} artists in the graf containing lyrics")
-
-
-        print(f"\n {len(set(communities.values()))} unique communities were found")
-        
-        
-        
+        region = "North American" if is_north_american else ""
+        print(f"\n{amounts_of_artists_with_lyrics} out of {len(G.nodes())} artists in the {region} {genre.lower()} graph have lyrics available.\n")
+                
+    community_counts = Counter(communities.values())    
     community_texts_df = prepare_community_texts(artists_df_prepared, communities)
     
     top_5_community_ids = get_top_n_largest_community_ids(communities, 5)
@@ -299,27 +285,32 @@ def run_tf_idf_wordcloud_analysis(artists_df, G, verbose=True, log_power = 1):
         by="community",
         key=lambda col: col.map({cid: i for i, cid in enumerate(top_5_community_texts_df)})
     )
+    top_5_community_texts_df["community_size"] = top_5_community_texts_df["community"].map(community_counts)
+
+    if verbose:
+        print(f"{len(community_counts)} unique communities were identified in the {graf_name} network.\n")
+        print("Top 5 communities ranked by member count:\n")
+        print(top_5_community_texts_df[["community", "tokens_length", "community_size"]].to_string(index=False))
+        print()
 
     tf_df = get_TF_dataframe(top_5_community_texts_df)
     idf_df = get_IDF_dataframe(community_texts_df, log_power=log_power)
     TF_IDF_df = get_TF_IDF_dataframe(tf_df, idf_df)
     
     if verbose:
-        print("\n ---- top 5 TF terms per community ---- \n")
+        print(f"--- Top 5 terms in {genre.lower()} communities based on Term Frequency (TF) ---\n")
         print_top_5_TF_per_community(tf_df)
-        print("\n ---- Top 10 TF-IDf terms per community ---- \n")
+
+        print(f"\n--- Top 5 terms in {genre.lower()} communities based on Term Frequency–Inverse Document Frequency (TF-IDF) ---\n")
         print_top_10_tf_idf_tokens(TF_IDF_df)
 
-    communitiy_to_top_artists = get_community_to_top_n_artists_by_followers(top_5_community_ids, communities, artists_df, 10)
+    n = 10
+    community_to_top_artists = get_community_to_top_n_artists_by_followers(top_5_community_ids, communities, artists_df, n)
+    print()
+    for community_id, top_artists in community_to_top_artists.items():
+        print(f"Top {n} most-followed artists in community {community_id}: {', '.join(top_artists)}")
     
-    print("Top 10 artists by followers in each of the top 5 communities:\n")
-
-    for community_id, artists in communitiy_to_top_artists.items():
-        print(f"Community {community_id}:")
-        for rank, artist_name in enumerate(artists, start=1):
-            print(f"  {rank}. {artist_name}")
-        print()  # empty line between communities
+    community_to_top_3_artists = get_community_to_top_n_artists_by_followers(top_5_community_ids, communities, artists_df, 3)
     
-    communitiy_to_top_3_artists = get_community_to_top_n_artists_by_followers(top_5_community_ids, communities, artists_df, 3)
-    
-    plot_wordcloud(TF_IDF_df, top_5_community_texts_df, communitiy_to_top_3_artists)
+    print("\nGenerating word clouds...\n")
+    plot_wordcloud(TF_IDF_df, top_5_community_texts_df, community_to_top_3_artists)
