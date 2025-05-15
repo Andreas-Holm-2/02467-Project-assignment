@@ -87,8 +87,8 @@ def get_Graph_with_names(nodes_df, edges_df, verbose=True):
 def get_n_largest_component(G, n):
     return sorted(nx.connected_components(G), key=len, reverse=True)[n]
 
-def apply_louvain(G, verbose=True):
-    partition = community_louvain.best_partition(G)
+def apply_louvain(G, verbose=True, seed = 42):
+    partition = community_louvain.best_partition(G, random_state=seed)
     community_list = []
     nx.set_node_attributes(G, partition, 'community')
     
