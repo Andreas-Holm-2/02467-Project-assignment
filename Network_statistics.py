@@ -1,4 +1,4 @@
-def print_network_statistics(G):
+def print_network_statistics(G, ):
     import networkx as nx
     import pandas as pd
 
@@ -18,7 +18,6 @@ def print_network_statistics(G):
     avg_clustering = nx.average_clustering(G)
     transitivity = nx.transitivity(G)
 
-    print("Pop network statistics\n")
     print("Number of nodes:", N)
     print("Number of edges:", L)
     print("Density:", density)
