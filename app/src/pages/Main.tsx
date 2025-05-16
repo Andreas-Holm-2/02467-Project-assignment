@@ -184,8 +184,8 @@ const Main: React.FC = () => {
               Driven by this question, we built a dataset of North American
               artists and mapped their collaborations as a network. Each link
               tells a story of artistic partnership, and through these
-              connections, we explore how two major genres shape — and are
-              shaped by — collaboration.
+              connections, we explore how two major genres shape - and are
+              shaped by - collaboration.
             </Typography>
 
             <Typography
@@ -195,7 +195,7 @@ const Main: React.FC = () => {
               sx={{ lineHeight: 1.7 }}
             >
               Starting from a global dataset of over 150,000 artists, we refined
-              our focus to Pop and Rap in North America — two genres often said
+              our focus to Pop and Rap in North America - two genres often said
               to differ in how artists connect. This let us ask: What defines a
               musical community, and how do collaboration patterns reflect
               cultural differences?
