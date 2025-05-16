@@ -50,7 +50,7 @@ const Agenda = () => {
                 display: "flex",
                 transition: "background-color 0.2s ease",
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.04)",
+                  // backgroundColor: "rgba(0, 0, 0, 0.04)",
                 },
               }}
             >
