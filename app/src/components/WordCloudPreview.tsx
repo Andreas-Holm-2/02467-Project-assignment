@@ -15,7 +15,7 @@ const WordCloudPreview = ({ setView }: WordCloudPreviewProps) => {
       }}
     >
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-        Text Analysis
+        Text Analysis on North American networks
       </Typography>
 
       <Typography
