@@ -712,17 +712,7 @@ const Main: React.FC = () => {
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
         <Grid item xs={12}>
-          <PaperWrapper elevation={3}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Summarized Results{" "}
-            </Typography>{" "}
-          </PaperWrapper>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
-        <Grid item xs={12}>
-          <PaperWrapper
+          <PaperWrapper 
             elevation={3}
             onClick={() => {
               setView("Explainer");
