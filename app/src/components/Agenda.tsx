@@ -24,7 +24,6 @@ const Agenda = () => {
     { label: "Dataset" },
     { label: "Networks" },
     { label: "Network Statistics" },
-    { label: "Communities by artist nationality" },
     { label: "Zooming in on North American Artists!" },
     { label: "Analyzing the North American networks" },
     { label: "Text Analysis" },
