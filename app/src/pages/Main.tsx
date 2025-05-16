@@ -32,6 +32,7 @@ import ModularityRAP from "../assets/mod_rap.png";
 import FrontGraph from "../assets/NIcegraph.png";
 import Agenda from "../components/Agenda";
 import WordCloudPreview from "../components/WordCloudPreview";
+import WordCloud from "../components/WordCloud";
 
 const DivideSection = () => {
   return (
@@ -49,7 +50,7 @@ const DivideSection = () => {
 
 const Main: React.FC = () => {
   const [view, setView] = useState<
-    "main" | "data" | "Graph" | "Explainer" | "Analysis_NA_page"
+    "main" | "data" | "Graph" | "Explainer" | "Analysis_NA_page" | "WordCloud"
   >("main");
   if (view !== "main") {
     let content = null;
@@ -57,6 +58,9 @@ const Main: React.FC = () => {
     switch (view) {
       case "data":
         content = <DataPage />;
+        break;
+      case "WordCloud":
+        content = <WordCloud />;
         break;
 
       case "Graph":
@@ -663,7 +667,7 @@ const Main: React.FC = () => {
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
         <Grid item xs={12}>
-          <WordCloudPreview />
+          <WordCloudPreview setView={setView} />
         </Grid>
       </Grid>
 

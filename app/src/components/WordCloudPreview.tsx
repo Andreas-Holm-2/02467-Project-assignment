@@ -1,15 +1,21 @@
 import { PaperWrapper } from "./PaperWrapper";
 import { Typography, Grid, Box } from "@mui/material";
-import Pop1Cloud from "../assets/pop_community_1.png";
-import Pop2Cloud from "../assets/pop_community_2.png";
-import Rap1Cloud from "../assets/rap_community_1.png";
-import Rap2Cloud from "../assets/rap_community_2.png";
+import Pop3 from "../assets/pop3.png";
+import Rap5 from "../assets/Rap5.png";
 
-const WordCloudPreview = () => {
+interface WordCloudPreviewProps {
+  setView: (view: any) => void;
+}
+
+const WordCloudPreview = ({ setView }: WordCloudPreviewProps) => {
   return (
-    <PaperWrapper>
+    <PaperWrapper
+      onClick={() => {
+        setView("WordCloud");
+      }}
+    >
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-        Word Clouds
+        Text Analysis
       </Typography>
 
       <Typography
@@ -18,78 +24,57 @@ const WordCloudPreview = () => {
         paragraph
         sx={{ lineHeight: 1.7 }}
       >
-        Each word cloud below represents one detected community within the Pop
-        or Rap network, based on lyrics used by artists. Larger words are more
-        frequent. Below each cloud, you'll see notable artists from that
-        community.
+        Each word cloud below represents a community within the Pop or Rap
+        network, using lyrics from each authors top 3 most listened songs.
+        Larger words are more frequent. Above each cloud, you'll see most
+        followed artists on spotify from that community.
       </Typography>
 
       <Grid container spacing={4}>
-        {/* Pop Community 1 */}
         <Grid item xs={12} md={6}>
           <Box
-            component="img"
-            src={Pop1Cloud}
-            alt="Pop Community 1 Word Cloud"
-            sx={{ width: "50%", borderRadius: 2 }}
-          />
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              component="img"
+              src={Rap5}
+              alt="Rap Community"
+              sx={{ width: "50%", borderRadius: 2 }}
+            />
+          </Box>
           <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-            Pop Community 1
+            Rap Community
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac
-            lacus sed urna vulputate.
+            Trap / Street-Oriented Rap. Artists are associated with trap, mumble
+            flows, and dark, melodic beats. Noticeable words like bustin, rack,
+            hunnit aligning with trap themes.
           </Typography>
         </Grid>
 
-        {/* Pop Community 2 */}
         <Grid item xs={12} md={6}>
           <Box
-            component="img"
-            src={Pop2Cloud}
-            alt="Pop Community 2 Word Cloud"
-            sx={{ width: "50%", borderRadius: 2 }}
-          />
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              component="img"
+              src={Pop3}
+              alt="Pop Community"
+              sx={{ width: "50%", borderRadius: 2 }}
+            />
+          </Box>
           <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-            Pop Community 2
+            Pop Community
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Cras placerat orci nec arcu bibendum, vel luctus metus gravida.
-            Pellentesque in commodo quam.
-          </Typography>
-        </Grid>
-
-        {/* Rap Community 1 */}
-        <Grid item xs={12} md={6}>
-          <Box
-            component="img"
-            src={Rap1Cloud}
-            alt="Rap Community 1 Word Cloud"
-            sx={{ width: "50%", borderRadius: 2 }}
-          />
-          <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-            Rap Community 1
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Integer feugiat est nec tellus bibendum, in laoreet neque hendrerit.
-            Vivamus at sapien non lorem pretium aliquet.
-          </Typography>
-        </Grid>
-
-        {/* Rap Community 2 */}
-        <Grid item xs={12} md={6}>
-          <Box
-            component="img"
-            src={Rap2Cloud}
-            alt="Rap Community 2 Word Cloud"
-            sx={{ width: "50%", borderRadius: 2, mx: "auto" }}
-          />
-          <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-            Rap Community 2
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Duis vulputate, risus vel pretium sollicitudin, orci sapien gravida
-            magna, in accumsan metus urna vel justo.
+            Pop mixed with R&B - Consists of artists known for blending pop with
+            R&B vocal style
           </Typography>
         </Grid>
       </Grid>
