@@ -90,9 +90,11 @@ const DataPage: React.FC = () => {
                     </TableCell>
                     <TableCell>
                       <Button
+                        component="a"
+                        href="/downloads/nodes.csv"
+                        download
                         color="inherit"
                         startIcon={<DownloadIcon />}
-                        href="/downloads/nodes.csv"
                       ></Button>
                     </TableCell>
                   </TableRow>
@@ -106,11 +108,12 @@ const DataPage: React.FC = () => {
                       collaboration between two artists.
                     </TableCell>
                     <TableCell>
-                      {" "}
                       <Button
+                        component="a"
+                        href="/downloads/edges.csv"
+                        download
                         color="inherit"
                         startIcon={<DownloadIcon />}
-                        href="/downloads/edges.csv"
                       ></Button>
                     </TableCell>
                   </TableRow>
@@ -185,9 +188,11 @@ const DataPage: React.FC = () => {
                     </TableCell>
                     <TableCell>
                       <Button
+                        component="a"
+                        href="/downloads/Artists.csv"
+                        download
                         color="inherit"
                         startIcon={<DownloadIcon />}
-                        href="/downloads/artists.csv"
                       ></Button>
                     </TableCell>
                   </TableRow>
