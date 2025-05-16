@@ -240,7 +240,7 @@ def plot_wordcloud(tf_idf_df, top_communities, community_to_top_3_authors, n=100
         authors = community_to_top_3_authors.get(community, [])
         author_str = "\n".join(authors)
 
-        wc = WordCloud(width=800, height=600, background_color="white").generate_from_frequencies(word_freq)
+        wc = WordCloud(width=800, height=600, background_color="white", random_state=42).generate_from_frequencies(word_freq)
 
         axes[idx].imshow(wc, interpolation="bilinear")
         axes[idx].set_title(f"Community {community}\n\n{author_str}", fontsize=14, pad=20)
@@ -301,7 +301,7 @@ def run_tf_idf_wordcloud_analysis(
         print(f"--- Top 5 terms in {genre.lower()} communities based on Term Frequency (TF) ---\n")
         print_top_5_TF_per_community(tf_df)
 
-        print(f"\n--- Top 5 terms in {genre.lower()} communities based on Term Frequency–Inverse Document Frequency (TF-IDF) ---\n")
+        print(f"\n--- Top 10 terms in {genre.lower()} communities based on Term Frequency–Inverse Document Frequency (TF-IDF) ---\n")
         print_top_10_tf_idf_tokens(TF_IDF_df)
 
     n = 10
