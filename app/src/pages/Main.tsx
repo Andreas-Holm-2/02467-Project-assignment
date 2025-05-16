@@ -191,8 +191,8 @@ const Main: React.FC = () => {
               Driven by this question, we built a dataset based on the most listened artists in North America
               and mapped their collaborations as a network.
               Each link represents an artistic collaboration, and through these
-              connections, we explore how two major genres shape - and are
-              shaped by - collaboration.
+              connections, we explore how two major genres are
+              shaped by collaboration.
             </Typography>
 
             <Typography
@@ -244,7 +244,7 @@ const Main: React.FC = () => {
             >
               The analysis then focuses on North American rap and pop cultures
               to explore genre-specific patterns. This is followed by a
-              quantitative analysis examining modularity and assortativity, as
+              quantitative analysis examining network science metrics such as modularity and assortativity, as
               well as text analysis of communities within North American rap and
               pop.
             </Typography>

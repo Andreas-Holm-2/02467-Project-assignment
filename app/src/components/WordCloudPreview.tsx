@@ -27,7 +27,7 @@ const WordCloudPreview = ({ setView }: WordCloudPreviewProps) => {
         Each word cloud below represents a community within the Pop or Rap
         network, using lyrics from each authors top 3 most listened songs.
         Larger words are more frequent. Above each cloud, you'll see most
-        followed artists on spotify from that community.
+        followed artists on spotify from that community.<br></br> <br></br>Click here to read more about our text analysis 🔠
       </Typography>
 
       <Grid container spacing={4}>
