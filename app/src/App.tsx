@@ -94,48 +94,6 @@ function App() {
           }}
         >
           <Main />
-
-          <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
-            <Grid item xs={12}>
-              <Paper
-                sx={{
-                  p: 3,
-                  borderRadius: 3,
-                  minHeight: 100,
-                  position: "relative",
-                  background:
-                    "linear-gradient(135deg, #e8f0ff,rgb(251, 244, 246))",
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                  transition: "box-shadow 0.3s",
-                  cursor: "pointer",
-                  "&:hover": {
-                    filter: "brightness(0.95)",
-                  },
-                  display: "flex",
-                  justifyContent: "center",
-                  verticalAlign: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  component="a"
-                  sx={{
-                    backgroundColor: "#5E6764",
-                    "&:hover": {
-                      backgroundColor: "#5E6764",
-                      filter: "brightness(1.2)",
-                    },
-                  }}
-                  href="https://andreas-holm-2.github.io/02467-Project-assignment/explainer.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Go to explainer notebook
-                </Button>
-              </Paper>
-            </Grid>
-          </Grid>
         </Paper>
       </Box>
     </Box>
