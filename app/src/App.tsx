@@ -2,6 +2,7 @@ import { Box, Paper } from "@mui/material";
 import Main from "./pages/Main";
 import myImage from "./assets/Background_image_good.jpg";
 import { useEffect, useRef, useState } from "react";
+import ExplainerPage from "./pages/ExplainerPage"
 
 function App() {
   const [offsetY, setOffsetY] = useState(0);
