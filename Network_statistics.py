@@ -40,7 +40,7 @@ def print_network_statistics(G, ):
 
 
 
-def plot_degree_distribution(G):
+def plot_degree_distribution(G, genre:str):
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -57,14 +57,14 @@ def plot_degree_distribution(G):
     
     plt.xlabel("Degree k")
     plt.ylabel("P(k)")
-    plt.title("Degree distribution of pop network")
+    plt.title(f"Degree distribution of {genre} network")
     plt.show()
 
 
 
 
 
-def plot_degree_distribution_log_log_scale(G):
+def plot_degree_distribution_log_log_scale(G, genre:str):
     import numpy as np
     import matplotlib.pyplot as plt
 
@@ -96,6 +96,6 @@ def plot_degree_distribution_log_log_scale(G):
     plt.xlabel("degree, k")
     plt.ylabel("P(k)")
     plt.legend()
-    plt.title("Degree distribution of input network")
+    plt.title(f"Degree distribution of {genre}-network")
     plt.show()
 

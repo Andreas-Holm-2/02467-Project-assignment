@@ -1,6 +1,6 @@
-def netwulf_plot_communities(G, communities, path="Network.pdf", zoom=1, figsize=30):
+def netwulf_plot_communities(G, communities, color_palette=None, path="Network.pdf", zoom=1, figsize=30):
     """
-    Visualize a network with nodes colored by the five largest communities.
+    Visualize a network with nodes colored by community.
     
     Parameters:
     -----------
@@ -8,38 +8,60 @@ def netwulf_plot_communities(G, communities, path="Network.pdf", zoom=1, figsize
         The network to visualize
     communities : dict or list
         Dictionary mapping node -> community_id or list of lists for communities
+    color_palette : list, optional
+        List of hex colors to use for the 5 largest communities (all others will be black)
     path : str, optional
         Path to save the figure
     figsize : int, optional
         Size of the figure
     """
     import netwulf as nw
+    import matplotlib.colors as mcolors
     import matplotlib.pyplot as plt
     from collections import Counter
 
+    # Convert communities to dict if it's in list format
     if isinstance(communities, list):
-        communities = {node: i for i, comm in enumerate(communities) for node in comm}
-
+        # If it's in the format of apply_louvain output (list of tuples with (community_id, [nodes]))
+        if isinstance(communities[0], tuple):
+            # Create a mapping from node to community ID
+            comm_dict = {}
+            for comm_id, nodes in communities:
+                for node in nodes:
+                    comm_dict[node] = comm_id
+            communities = comm_dict
+        else:
+            # If it's just a list of lists of nodes
+            communities = {node: i for i, comm in enumerate(communities) for node in comm}
+    
+    # Count community sizes to identify the 5 largest
+    comm_sizes = Counter()
+    for node, comm_id in communities.items():
+        comm_sizes[comm_id] += 1
+    
+    # Get the 5 largest communities by size
+    top_5_communities = [comm_id for comm_id, _ in comm_sizes.most_common(5)]
+    
     G_copy = G.copy()
-
-    # Count community sizes and get the 5 largest
-    community_counts = Counter(communities.values())
-    top_5_communities = [comm for comm, _ in community_counts.most_common(5)]
-
-    # Define 5 distinct colors
-    colors = ['#F67280',  # soft coral pink
-            '#6C5B7B',  # muted purple
-            '#355C7D',  # deep blue-grey
-            '#C06C84',  # mauve rose
-            '#F8B195']  # peachy beige
-    color_map = {comm_id: colors[i] for i, comm_id in enumerate(top_5_communities)}
-
+    
+    # Set up color palette
+    if color_palette is None:
+        default_colors = list(mcolors.TABLEAU_COLORS.values())
+        color_palette = default_colors[:5]  # Just use first 5 colors
+    
+    # Create color map: unique colors for top 5, black for the rest
+    color_map = {}
+    for i, comm_id in enumerate(top_5_communities):
+        color_map[comm_id] = color_palette[i % len(color_palette)]
+    
+    # Set node attributes for color and community
     for node, comm_id in communities.items():
         G_copy.nodes[node]['community'] = comm_id
+        # Use color from palette for top 5 communities, black for others
         if comm_id in top_5_communities:
             G_copy.nodes[node]['color'] = color_map[comm_id]
         else:
-            G_copy.nodes[node]['color'] = '#000000'  # black for others
+            G_copy.nodes[node]['color'] = '#000000'  # Black for all other communities
 
     config = {
         'zoom': zoom,
@@ -69,11 +91,15 @@ def netwulf_plot_communities(G, communities, path="Network.pdf", zoom=1, figsize
     # Visualize without printing
     network, _ = nw.visualize(G_copy, plot_in_cell_below=False, config=config)
 
-    # Update colors in final network view
+    # Update colors in the network visualization
     for node_data in network['nodes']:
         node_id = node_data['id']
-        comm_id = communities.get(node_id)
-        node_data['color'] = color_map.get(comm_id, '#000000')  # default to black
+        if node_id in communities:
+            comm_id = communities[node_id]
+            if comm_id in top_5_communities:
+                node_data['color'] = color_map[comm_id]
+            else:
+                node_data['color'] = '#000000'  # Black
 
     fig, _ = nw.draw_netwulf(network, figsize=figsize)
     plt.savefig(path)
