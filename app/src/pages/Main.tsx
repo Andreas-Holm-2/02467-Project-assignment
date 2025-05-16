@@ -339,7 +339,7 @@ const Main: React.FC = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Networks
             </Typography>
-            <Typography sx={{ mb: 1 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
               Each artist in the graph is associated with a genre property,
               which lists all the genres the artist is involved in. Using this
               information, we derived subgraphs for <strong>Pop</strong> and{" "}
@@ -357,7 +357,7 @@ const Main: React.FC = () => {
               }}
             />
 
-            <Typography>
+            <Typography variant="body2" color="text.secondary">
               <br></br>
               <b>Read more </b> by clickling on me 🤓
             </Typography>
@@ -645,7 +645,7 @@ const Main: React.FC = () => {
             <Box sx={{ display: "flex", gap: 4 }}>
               <Box>
                 <Typography variant="body2" sx={{ fontWeight: 500, mb: 1 }}>
-                  Rap
+                  Pop
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
@@ -656,7 +656,7 @@ const Main: React.FC = () => {
 
               <Box>
                 <Typography variant="body2" sx={{ fontWeight: 500, mb: 1 }}>
-                  Pop
+                  Rap
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
