@@ -306,17 +306,15 @@ const Main: React.FC = () => {
               gutterBottom
               sx={{ fontWeight: 600 }}
             >
-              What’s inside the dataset?
+              What's inside the dataset?
             </Typography>
             <Typography variant="body2" color="text.secondary" lineHeight={1.6}>
-              Mangler, skal skrives så man får et hurtigt overblik over
-              datasættet her og hvis man vil uddybe sit svar kan man hoppe
-              niveauet ind.
-              {/* Curious about how the dataset was built? Click to explore how the
-              data was collected, what assumptions were made, and how we cleaned
-              and structured it. You'll also find a breakdown of key dataset
-              properties like node types, edge definitions, and genre
-              categorization. */}
+              This explains how the Social Network is derived. Nodes are artists
+              and an edge exists between artist A and B if they have previosuly
+              collaborated. Using a Social Network with ~150.000 nodes and
+              ~300.000 edges as a starting point nodes (artists) are filtered
+              out if they are not found in the 10.000 most listend to within the
+              US for the year xx..
             </Typography>
           </PaperWrapper>
         </Grid>
