@@ -31,11 +31,7 @@ import ModularityPOP from "../assets/mod_pop.png";
 import ModularityRAP from "../assets/mod_rap.png";
 import FrontGraph from "../assets/NIcegraph.png";
 import Agenda from "../components/Agenda";
-
-import Pop1Cloud from "../assets/pop_community_1.png";
-import Pop2Cloud from "../assets/pop_community_2.png";
-import Rap1Cloud from "../assets/rap_community_1.png";
-import Rap2Cloud from "../assets/rap_community_2.png";
+import WordCloudPreview from "../components/WordCloudPreview";
 
 const DivideSection = () => {
   return (
@@ -128,32 +124,31 @@ const Main: React.FC = () => {
         </Box>
       </Box>
 
-        <Grid container spacing={8} sx={{ my: 1, px: 6}} alignItems="stretch">
-          {/* Agenda section - left column */}
-          <Grid item xs={12} md={4}>
-            <Agenda />
-          </Grid>
-
-          {/* Image section - right column */}
-          <Grid item xs={12} md={8}>
-            <Box sx={{ display: "flex", justifyContent: "center", mt: -2 }}>
-              <Box
-                component="img"
-                src={FrontGraph}
-                alt="Communities by country"
-                sx={{
-                  width: "99%", // take full width of its column
-                  maxWidth: "600px", // optional max size
-                  objectFit: "contain",
-                  borderRadius: 2,
-                  backgroundColor: "#f3f4f6",
-                  mt: 2,
-                }}
-              />
-            </Box>
-          </Grid>
+      <Grid container spacing={8} sx={{ my: 1, px: 6 }} alignItems="stretch">
+        {/* Agenda section - left column */}
+        <Grid item xs={12} md={4}>
+          <Agenda />
         </Grid>
 
+        {/* Image section - right column */}
+        <Grid item xs={12} md={8}>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: -2 }}>
+            <Box
+              component="img"
+              src={FrontGraph}
+              alt="Communities by country"
+              sx={{
+                width: "99%", // take full width of its column
+                maxWidth: "600px", // optional max size
+                objectFit: "contain",
+                borderRadius: 2,
+                backgroundColor: "#f3f4f6",
+                mt: 2,
+              }}
+            />
+          </Box>
+        </Grid>
+      </Grid>
 
       <DivideSection />
 
@@ -219,7 +214,7 @@ const Main: React.FC = () => {
               had most occurences of in his/hers "genre" property from the
               Global Dataset from Kaggle. Then working on these divded
             </Typography>
-              
+
             <Typography
               variant="body2"
               color="text.secondary"
@@ -337,8 +332,9 @@ const Main: React.FC = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Network
             </Typography>
-            <Typography sx={{mb: 1}}>
-              Using our dataset we're able to create networks based on the two genres <strong>POP</strong> and <strong>RAP</strong>.
+            <Typography sx={{ mb: 1 }}>
+              Using our dataset we're able to create networks based on the two
+              genres <strong>POP</strong> and <strong>RAP</strong>.
             </Typography>
 
             <Box
@@ -353,8 +349,9 @@ const Main: React.FC = () => {
             />
 
             <Typography>
-              The network consists of artists, acting as nodes, and their song collaborations with other artists as edges. 
-              <br></br> 
+              The network consists of artists, acting as nodes, and their song
+              collaborations with other artists as edges.
+              <br></br>
               <b>Read more </b> by clickling on me 🤓
             </Typography>
           </PaperWrapper>
@@ -365,75 +362,75 @@ const Main: React.FC = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Network Statistics
             </Typography>
-              <TableContainer>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>
-                        <strong> </strong>
-                      </TableCell>
-                      <TableCell align="right">
-                        <strong>RAP</strong>
-                      </TableCell>
-                      <TableCell align="right">
-                        <strong>POP</strong>
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>Number of nodes</TableCell>
-                      <TableCell align="right">4161</TableCell>
-                      <TableCell align="right">1149</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Number of edges</TableCell>
-                      <TableCell align="right">13.698</TableCell>
-                      <TableCell align="right">6860</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Density</TableCell>
-                      <TableCell align="right">0.00158</TableCell>
-                      <TableCell align="right">0.0104</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Number of isolated nodes</TableCell>
-                      <TableCell align="right">758</TableCell>
-                      <TableCell align="right">143</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Is connected</TableCell>
-                      <TableCell align="right">False</TableCell>
-                      <TableCell align="right">False</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Number of connected components</TableCell>
-                      <TableCell align="right">801</TableCell>
-                      <TableCell align="right">153</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Size of largest component</TableCell>
-                      <TableCell align="right">3286</TableCell>
-                      <TableCell align="right">961</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Average Degree(largest component)</TableCell>
-                      <TableCell align="right">6.58</TableCell>
-                      <TableCell align="right">11.94</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Median Degree</TableCell>
-                      <TableCell align="right">3.00</TableCell>
-                      <TableCell align="right">5.0</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Maximum Degree</TableCell>
-                      <TableCell align="right">162</TableCell>
-                      <TableCell align="right">104</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </TableContainer>
+            <TableContainer>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                      <strong> </strong>
+                    </TableCell>
+                    <TableCell align="right">
+                      <strong>RAP</strong>
+                    </TableCell>
+                    <TableCell align="right">
+                      <strong>POP</strong>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Number of nodes</TableCell>
+                    <TableCell align="right">4161</TableCell>
+                    <TableCell align="right">1149</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Number of edges</TableCell>
+                    <TableCell align="right">13.698</TableCell>
+                    <TableCell align="right">6860</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Density</TableCell>
+                    <TableCell align="right">0.00158</TableCell>
+                    <TableCell align="right">0.0104</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Number of isolated nodes</TableCell>
+                    <TableCell align="right">758</TableCell>
+                    <TableCell align="right">143</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Is connected</TableCell>
+                    <TableCell align="right">False</TableCell>
+                    <TableCell align="right">False</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Number of connected components</TableCell>
+                    <TableCell align="right">801</TableCell>
+                    <TableCell align="right">153</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Size of largest component</TableCell>
+                    <TableCell align="right">3286</TableCell>
+                    <TableCell align="right">961</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Average Degree(largest component)</TableCell>
+                    <TableCell align="right">6.58</TableCell>
+                    <TableCell align="right">11.94</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Median Degree</TableCell>
+                    <TableCell align="right">3.00</TableCell>
+                    <TableCell align="right">5.0</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Maximum Degree</TableCell>
+                    <TableCell align="right">162</TableCell>
+                    <TableCell align="right">104</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </PaperWrapper>
         </Grid>
       </Grid>
@@ -477,7 +474,7 @@ const Main: React.FC = () => {
               color="text.secondary"
               paragraph
               sx={{ lineHeight: 1.7 }}
-            > 
+            >
               In contrast, the Pop network includes a large{" "}
               <em>International</em> cluster, reflecting a broader pattern of
               cross-border collaboration. One possible explanation for this
@@ -666,93 +663,7 @@ const Main: React.FC = () => {
 
       <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
         <Grid item xs={12}>
-          <PaperWrapper>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Word Clouds
-            </Typography>
-
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              paragraph
-              sx={{ lineHeight: 1.7 }}
-            >
-              Each word cloud below represents one detected community within the
-              Pop or Rap network, based on lyrics used by artists. Larger words
-              are more frequent. Below each cloud, you'll see notable artists
-              from that community.
-            </Typography>
-
-            <Grid container spacing={4}>
-              {/* Pop Community 1 */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={Pop1Cloud}
-                  alt="Pop Community 1 Word Cloud"
-                  sx={{ width: "50%", borderRadius: 2 }}
-                />
-                <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-                  Pop Community 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  ac lacus sed urna vulputate.
-                </Typography>
-              </Grid>
-
-              {/* Pop Community 2 */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={Pop2Cloud}
-                  alt="Pop Community 2 Word Cloud"
-                  sx={{ width: "50%", borderRadius: 2 }}
-                />
-                <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-                  Pop Community 2
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Cras placerat orci nec arcu bibendum, vel luctus metus
-                  gravida. Pellentesque in commodo quam.
-                </Typography>
-              </Grid>
-
-              {/* Rap Community 1 */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={Rap1Cloud}
-                  alt="Rap Community 1 Word Cloud"
-                  sx={{ width: "50%", borderRadius: 2 }}
-                />
-                <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-                  Rap Community 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Integer feugiat est nec tellus bibendum, in laoreet neque
-                  hendrerit. Vivamus at sapien non lorem pretium aliquet.
-                </Typography>
-              </Grid>
-
-              {/* Rap Community 2 */}
-              <Grid item xs={12} md={6}>
-                <Box
-                  component="img"
-                  src={Rap2Cloud}
-                  alt="Rap Community 2 Word Cloud"
-                  sx={{ width: "50%", borderRadius: 2, mx: "auto" }}
-                />
-                <Typography variant="subtitle2" sx={{ mt: 2, fontWeight: 600 }}>
-                  Rap Community 2
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Duis vulputate, risus vel pretium sollicitudin, orci sapien
-                  gravida magna, in accumsan metus urna vel justo.
-                </Typography>
-              </Grid>
-            </Grid>
-          </PaperWrapper>
+          <WordCloudPreview />
         </Grid>
       </Grid>
 
