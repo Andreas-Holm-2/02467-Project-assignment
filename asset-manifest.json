@@ -1,19 +1,28 @@
 {
   "files": {
     "main.css": "/02467-Project-assignment/static/css/main.e6c13ad2.css",
-    "main.js": "/02467-Project-assignment/static/js/main.55091e17.js",
+    "main.js": "/02467-Project-assignment/static/js/main.85813058.js",
     "static/js/453.d03b33b2.chunk.js": "/02467-Project-assignment/static/js/453.d03b33b2.chunk.js",
     "static/media/network.png": "/02467-Project-assignment/static/media/network.4f0af146b2ec4f075622.png",
+    "static/media/communitiies_showing_country.png": "/02467-Project-assignment/static/media/communitiies_showing_country.87447ff303bdf9e63b69.png",
+    "static/media/pop_community_1.png": "/02467-Project-assignment/static/media/pop_community_1.12a030545a505fb12a29.png",
+    "static/media/rap_community_1.png": "/02467-Project-assignment/static/media/rap_community_1.fd836228bf94d582a68b.png",
+    "static/media/rap_community_2.png": "/02467-Project-assignment/static/media/rap_community_2.d8053daa2e3d26834c2e.png",
     "static/media/Figure.png": "/02467-Project-assignment/static/media/Figure.dae72203f90324dc5b80.png",
+    "static/media/pop_community_2.png": "/02467-Project-assignment/static/media/pop_community_2.8fde4883cfa7c6bf397c.png",
+    "static/media/assort_pop.png": "/02467-Project-assignment/static/media/assort_pop.27a617cfc023bef1f95e.png",
+    "static/media/assort_rap.png": "/02467-Project-assignment/static/media/assort_rap.2f20e041ecb2141254e0.png",
+    "static/media/mod_rap.png": "/02467-Project-assignment/static/media/mod_rap.6713bee245d7052fce5f.png",
+    "static/media/mod_pop.png": "/02467-Project-assignment/static/media/mod_pop.dc64eb7d5ddbd4e991cd.png",
     "static/media/Spotify_icon.png": "/02467-Project-assignment/static/media/Spotify_icon.5433e89b7a07027cdc5a.png",
     "static/media/Background_image_good.jpg": "/02467-Project-assignment/static/media/Background_image_good.a7c04d488e78ca9b4eea.jpg",
     "index.html": "/02467-Project-assignment/index.html",
     "main.e6c13ad2.css.map": "/02467-Project-assignment/static/css/main.e6c13ad2.css.map",
-    "main.55091e17.js.map": "/02467-Project-assignment/static/js/main.55091e17.js.map",
+    "main.85813058.js.map": "/02467-Project-assignment/static/js/main.85813058.js.map",
     "453.d03b33b2.chunk.js.map": "/02467-Project-assignment/static/js/453.d03b33b2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.55091e17.js"
+    "static/js/main.85813058.js"
   ]
 }
