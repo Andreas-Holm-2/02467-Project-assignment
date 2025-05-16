@@ -34,6 +34,7 @@ import FrontGraph2 from "../assets/Pop_graph_for_front_page.png";
 import Agenda from "../components/Agenda";
 import WordCloudPreview from "../components/WordCloudPreview";
 import WordCloud from "../components/WordCloud";
+import pop10Image from "../assets/Pop_with_10_communites.png";
 
 const DivideSection = () => {
   return (
@@ -344,7 +345,7 @@ const Main: React.FC = () => {
 
             <Box
               component="img"
-              src={FrontGraph2}
+              src={pop10Image}
               alt="Rap Collaboration Network"
               sx={{
                 width: "100%",

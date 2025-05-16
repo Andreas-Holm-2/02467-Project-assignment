@@ -1,8 +1,27 @@
 import { Box, Paper } from "@mui/material";
 import Main from "./pages/Main";
 import myImage from "./assets/Background_image_good.jpg";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
+  const [offsetY, setOffsetY] = useState(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          setOffsetY(window.scrollY * 0.1); // 10% scroll effect
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Box
       sx={{
@@ -11,19 +30,23 @@ function App() {
         overflow: "hidden",
       }}
     >
+      {/* Background Image with Smooth Parallax */}
       <Box
         sx={{
-          position: "absolute",
+          position: "fixed",
           inset: 0,
           backgroundImage: `url(${myImage})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: `center ${-offsetY}px`,
           backgroundRepeat: "no-repeat",
           zIndex: 0,
           opacity: 0.7,
+          filter: "blur(5px)",
+          willChange: "background-position", // GPU-accelerated
         }}
       />
 
+      {/* Dark overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -33,6 +56,7 @@ function App() {
         }}
       />
 
+      {/* Foreground Content */}
       <Box
         sx={{
           position: "relative",
