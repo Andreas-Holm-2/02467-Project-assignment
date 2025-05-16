@@ -135,7 +135,7 @@ const Main: React.FC = () => {
         </Box>
       </Box>
 
-      <Grid container spacing={8} sx={{ my: 1, px: 6 }} alignItems="stretch">
+      <Grid container spacing={10} sx={{ my: 1, px: 6 }} alignItems="stretch">
         {/* Agenda section - left column */}
         <Grid item xs={12} md={4}>
           <Agenda />
@@ -149,12 +149,13 @@ const Main: React.FC = () => {
               src={FrontGraph}
               alt="Communities by country"
               sx={{
-                width: "99%", // take full width of its column
-                maxWidth: "600px", // optional max size
+                width: "95%",
+                maxWidth: "600px",
                 objectFit: "contain",
                 borderRadius: 2,
                 backgroundColor: "#f3f4f6",
                 mt: 2,
+                ml: 3.75, // move left by 4 spacing units (~32px)
               }}
             />
           </Box>
