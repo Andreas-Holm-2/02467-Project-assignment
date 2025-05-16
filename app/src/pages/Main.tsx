@@ -29,6 +29,7 @@ import AssortativityPOP from "../assets/assort_pop.png";
 import AssortativityRAP from "../assets/assort_rap.png";
 import ModularityPOP from "../assets/mod_pop.png";
 import ModularityRAP from "../assets/mod_rap.png";
+import FrontGraph from "../assets/NIcegraph.png";
 import Agenda from "../components/Agenda";
 
 import Pop1Cloud from "../assets/pop_community_1.png";
@@ -127,11 +128,32 @@ const Main: React.FC = () => {
         </Box>
       </Box>
 
-      <Grid container spacing={5} sx={{ my: 1, px: 6 }} alignItems="stretch">
-        <Grid item xs={12} md={12}>
-          <Agenda />
+        <Grid container spacing={8} sx={{ my: 1, px: 6}} alignItems="stretch">
+          {/* Agenda section - left column */}
+          <Grid item xs={12} md={4}>
+            <Agenda />
+          </Grid>
+
+          {/* Image section - right column */}
+          <Grid item xs={12} md={8}>
+            <Box sx={{ display: "flex", justifyContent: "center", mt: -2 }}>
+              <Box
+                component="img"
+                src={FrontGraph}
+                alt="Communities by country"
+                sx={{
+                  width: "99%", // take full width of its column
+                  maxWidth: "600px", // optional max size
+                  objectFit: "contain",
+                  borderRadius: 2,
+                  backgroundColor: "#f3f4f6",
+                  mt: 2,
+                }}
+              />
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+
 
       <DivideSection />
 
@@ -197,7 +219,7 @@ const Main: React.FC = () => {
               had most occurences of in his/hers "genre" property from the
               Global Dataset from Kaggle. Then working on these divded
             </Typography>
-
+              
             <Typography
               variant="body2"
               color="text.secondary"

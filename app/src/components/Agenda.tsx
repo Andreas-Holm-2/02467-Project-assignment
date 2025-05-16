@@ -36,7 +36,7 @@ const Agenda = () => {
         Welcome! Here's What We Cover 😊
       </Typography>
 
-      <List disablePadding sx={{ mt: 2 }}>
+      <List disablePadding sx={{ mt: 0 }}>
         {tocItems.map((item, idx) => (
           <React.Fragment key={idx}>
             <ListItem
@@ -75,7 +75,7 @@ const Agenda = () => {
                   sx: {
                     fontWeight: 500,
                     color: "text.secondary",
-                    lineHeight: 1.7,
+                    lineHeight: 1.1,
                     fontSize: "0.95rem", // slightly larger than body2, but smaller than body1
                   },
                 }}
