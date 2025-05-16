@@ -116,51 +116,40 @@ const Analysis_NA_page: React.FC = () => {
               <Typography  variant="h6" gutterBottom sx={{ fontWeight: 600, mt: 3 }}>
                 Popularity and degree   
               </Typography>
-              
-
-              <Box>
-
-                <Typography variant="body1" paragraph>
+            
+              <Typography variant="body1" paragraph>
                   Assortativity by attribute "popularity" was also computed, which did not showing a significant difference. 
                   However, this inspired us to look into how the "popularity" attribute correlates with node-degree count. 
-                  <TableContainer component={Paper} sx={{
-                      mt: 3,
-                      width: "75%",       // Shrinks the container to fit table contents
-                      mx: "auto",                 // Centers it horizontally
-                      px: 2,                      // Optional: padding inside the paper
-                      boxShadow: 2,              // Optional: subtle shadow
-                    }}>
-                    <Table size="small">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>
-                            <strong>Genre</strong>
-                          </TableCell>
-                          <TableCell>
-                            <strong>Correlation</strong>
-                          </TableCell>
-                          
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell>POP</TableCell>
-                          <TableCell>0.39</TableCell>
-                          
-                        </TableRow>
-                        <TableRow>
-                          <TableCell>RAP</TableCell>
-                          <TableCell>0.57</TableCell>
-                          
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Typography>
-
+              </Typography>
+              <Box sx={{ height: 180, width: "30%", mt: 2 , mx:"auto"}}>
+                <TableContainer component={Paper}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>
+                          <strong>Genre</strong>
+                        </TableCell>
+                        <TableCell align="right">
+                          <strong>Correlation</strong>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      <TableRow>
+                        <TableCell>Rap</TableCell>
+                        <TableCell align="right">0.57</TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell>Pop</TableCell>
+                        <TableCell align="right">0.39</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </Box>
             </Typography>
-            <Typography>
+            
+            <Typography sx={{mt: -7}}>
               Both POP and RAP show some correlation between popularity and out-degree. 
               However, there is a higher correlation between the two metrics in the RAP network, highlighting that 
               popularity is more tied to number of collaborations, suggesting that popularity might be more 
