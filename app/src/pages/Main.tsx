@@ -337,24 +337,25 @@ const Main: React.FC = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Network
             </Typography>
+            <Typography sx={{mb: 1}}>
+              Using our dataset we're able to create networks based on the two genres <strong>POP</strong> and <strong>RAP</strong>.
+            </Typography>
+
             <Box
               component="img"
-              src={RapNetwork}
+              src={FrontGraph}
               alt="Rap Collaboration Network"
               sx={{
                 width: "100%",
-                height: 200,
-                objectFit: "contain",
                 borderRadius: 2,
                 backgroundColor: "#f3f4f6",
               }}
             />
 
             <Typography>
-              <span style={{ color: "red" }}>
-                {" "}
-                MANGLER ALT MULIGT INTRO. F.eks. Nodes/Edges{" "}
-              </span>
+              The network consists of artists, acting as nodes, and their song collaborations with other artists as edges. 
+              <br></br> 
+              <b>Read more </b> by clickling on me 🤓
             </Typography>
           </PaperWrapper>
         </Grid>
@@ -364,6 +365,75 @@ const Main: React.FC = () => {
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Network Statistics
             </Typography>
+              <TableContainer>
+                <Table size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        <strong> </strong>
+                      </TableCell>
+                      <TableCell align="right">
+                        <strong>RAP</strong>
+                      </TableCell>
+                      <TableCell align="right">
+                        <strong>POP</strong>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Number of nodes</TableCell>
+                      <TableCell align="right">4161</TableCell>
+                      <TableCell align="right">1149</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Number of edges</TableCell>
+                      <TableCell align="right">13.698</TableCell>
+                      <TableCell align="right">6860</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Density</TableCell>
+                      <TableCell align="right">0.00158</TableCell>
+                      <TableCell align="right">0.0104</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Number of isolated nodes</TableCell>
+                      <TableCell align="right">758</TableCell>
+                      <TableCell align="right">143</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Is connected</TableCell>
+                      <TableCell align="right">False</TableCell>
+                      <TableCell align="right">False</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Number of connected components</TableCell>
+                      <TableCell align="right">801</TableCell>
+                      <TableCell align="right">153</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Size of largest component</TableCell>
+                      <TableCell align="right">3286</TableCell>
+                      <TableCell align="right">961</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Average Degree(largest component)</TableCell>
+                      <TableCell align="right">6.58</TableCell>
+                      <TableCell align="right">11.94</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Median Degree</TableCell>
+                      <TableCell align="right">3.00</TableCell>
+                      <TableCell align="right">5.0</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Maximum Degree</TableCell>
+                      <TableCell align="right">162</TableCell>
+                      <TableCell align="right">104</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
           </PaperWrapper>
         </Grid>
       </Grid>
@@ -407,7 +477,7 @@ const Main: React.FC = () => {
               color="text.secondary"
               paragraph
               sx={{ lineHeight: 1.7 }}
-            >
+            > 
               In contrast, the Pop network includes a large{" "}
               <em>International</em> cluster, reflecting a broader pattern of
               cross-border collaboration. One possible explanation for this
