@@ -101,11 +101,6 @@ const NetworkGraphEmbed: React.FC = () => {
           meaningful groupings, which the Netwulf engine also seems to capture
           effectively.
         </Typography>
-        <Typography variant="body1" paragraph sx={{ fontStyle: "italic" }}>
-          Note: Only 10 distinct colors are used in the plots below, which means
-          that different communities may share the same color but do not
-          necessarily belong to the same Louvain community.
-        </Typography>
 
         <Grid container spacing={2}>
           {/* Left Column - Pop Network */}
