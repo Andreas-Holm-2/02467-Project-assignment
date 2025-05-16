@@ -527,10 +527,11 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              From this point onward, we focus on a subset of the network — the{" "}
-              <em>North American</em> clusters. This allows us to better examine
-              collaboration patterns specific to Pop and Rap in a shared
-              cultural and linguistic context.
+              Up until now we've considered the network and its communities
+                across countries as an entirety. Therefore, to go more in depth
+                with our network analysis, we zoom in on the North American
+                cluster in both graphs. <br></br>
+                This will create two new subgraphs <b>POP-NA</b> & <b>RAP-NA</b>
             </Typography>
 
             <Box
@@ -546,12 +547,12 @@ const Main: React.FC = () => {
                 variant="subtitle2"
                 sx={{ fontWeight: 600, mb: 1, color: "text.primary" }}
               >
-                Node and Edge Counts
+                Creating the networks POP-NA & RAP-NA 
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                The first number represents nodes; the second represents edges.
-              </Typography>
+                Listed below is the new size of the two sub networks: 
+                </Typography>
 
               <Box sx={{ height: 180, width: "100%", mt: 2 }}>
                 <TableContainer>
@@ -562,43 +563,48 @@ const Main: React.FC = () => {
                           <strong>Genre</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Nodes (Before Zoom)</strong>
+                          <strong>Nodes Before Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Edges (Before Zoom)</strong>
+                          <strong>Edges Before Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Nodes (NA)</strong>
+                          <strong>Nodes After Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Edges (NA)</strong>
+                          <strong>Edges After zoom</strong>
                         </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       <TableRow>
                         <TableCell>Rap</TableCell>
-                        <TableCell align="right">8,756</TableCell>
-                        <TableCell align="right">42,297</TableCell>
-                        <TableCell align="right">1,843</TableCell>
-                        <TableCell align="right">9,312</TableCell>
+                        <TableCell align="right">1149</TableCell>
+                        <TableCell align="right">6860</TableCell>
+                        <TableCell align="right">349</TableCell>
+                        <TableCell align="right">3305</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Pop</TableCell>
-                        <TableCell align="right">7,210</TableCell>
-                        <TableCell align="right">36,512</TableCell>
-                        <TableCell align="right">2,156</TableCell>
-                        <TableCell align="right">10,021</TableCell>
+                        <TableCell align="right">4161</TableCell>
+                        <TableCell align="right">13.698</TableCell>
+                        <TableCell align="right">953</TableCell>
+                        <TableCell align="right">5321</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
                 </TableContainer>
               </Box>
             </Box>
+          <Typography variant="body2"
+              color="text.secondary"sx={{mt:0}}>
+              This allows us to engage in a more focused network analysis, 
+              where country doesn't serve as a confounder for the communities. <br></br>
+          </Typography>
 
-            <Typography
+            <Typography 
               variant="subtitle2"
-              sx={{ fontWeight: 600, mb: 1, color: "text.primary" }}
+              sx={{ fontWeight: 600, mb: 1, mt: 2,color: "text.primary" }}
             >
               Top 5 Artists by Followers (North America)
             </Typography>
@@ -610,7 +616,7 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  <span style={{ color: "red" }}>MANGLER</span>.
+                  Ed Sheeran<br></br>Ariana Grande<br></br>Billie Eilish<br></br>Justin Bieber<br></br>Taylor Swift
                 </Typography>
               </Box>
 
@@ -620,7 +626,7 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  <span style={{ color: "red" }}>MANGLER</span>.
+                  Drake<br></br> Eminem<br></br> Bad Bunny<br></br> Post Malone<br></br> XXXTENTACION
                 </Typography>
               </Box>
             </Box>
@@ -637,15 +643,15 @@ const Main: React.FC = () => {
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Analyzing the North American networks
-              <Typography>
-                Up until now we've considered the network and its communities
-                across countries as an entirety. Therefore, to go more in depth
-                with our network analysis, we zoom in on the North American
-                cluster in both graphs.
+              <Typography variant="body2"
+              color="text.secondary">
+                Our network analysis will be based on network science metrics such as assortativity & modularity, 
+                while also relying on correlation between spotify popularity and connectivity. 
+                <br></br>
+                <br></br>
+                Click here to read more about our analysis 🧮
               </Typography>
-              <Typography>
-                Click here to read more about our analysis :)
-              </Typography>
+
               <Box
                 component="img"
                 src={AssortativityPOP}
