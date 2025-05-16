@@ -35,14 +35,27 @@ function App() {
         sx={{
           position: "fixed",
           inset: 0,
-          backgroundImage: `url(${myImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: `center ${-offsetY}px`,
-          backgroundRepeat: "no-repeat",
           zIndex: 0,
+          overflow: "hidden",
           opacity: 0.7,
-          filter: "blur(5px)",
-          willChange: "background-position", // GPU-accelerated
+          "&::before, &::after": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "200%",
+            backgroundImage: `url(${myImage})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "repeat-y",
+            backgroundPosition: `center ${-offsetY}px`,
+            filter: "blur(5px)",
+            willChange: "background-position",
+          },
+          "&::after": {
+            transform: "scaleY(-1)",
+            top: "100%",
+          },
         }}
       />
 
