@@ -709,22 +709,6 @@ const Main: React.FC = () => {
           <WordCloudPreview setView={setView} />
         </Grid>
       </Grid>
-
-      <Grid container spacing={5} sx={{ my: 1, px: 6 }}>
-        <Grid item xs={12}>
-          <PaperWrapper 
-            elevation={3}
-            onClick={() => {
-              setView("Explainer");
-              console.log("not implemented");
-            }}
-          >
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Explainer notebook
-            </Typography>{" "}
-          </PaperWrapper>
-        </Grid>
-      </Grid>
     </Box>
   );
 };
