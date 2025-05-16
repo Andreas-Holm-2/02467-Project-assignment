@@ -188,9 +188,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Driven by this question, we built a dataset of North American
-              artists and mapped their collaborations as a network. Each link
-              tells a story of artistic partnership, and through these
+              Driven by this question, we built a dataset based on the most listened artists in North America
+              and mapped their collaborations as a network.
+              Each link represents an artistic collaboration, and through these
               connections, we explore how two major genres shape - and are
               shaped by - collaboration.
             </Typography>
