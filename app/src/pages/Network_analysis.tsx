@@ -137,11 +137,11 @@ const Analysis_NA_page: React.FC = () => {
                     <TableBody>
                       <TableRow>
                         <TableCell>Rap</TableCell>
-                        <TableCell align="right">0.57</TableCell>
+                        <TableCell align="right">0.600</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Pop</TableCell>
-                        <TableCell align="right">0.39</TableCell>
+                        <TableCell align="right">0.416</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
