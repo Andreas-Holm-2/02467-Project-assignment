@@ -29,8 +29,7 @@ const Analysis_NA_page: React.FC = () => {
         <PaperWrapper>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Analyzing the North American networks
-              <Typography variant="body2"
-              color="text.secondary">
+              <Typography >
                 We kick off our analysis by examining the Modularity, calculated using the 
                 louvain community detection algorithm. Modularity quantify the precense of 
                 distinct subgroups / communities, and the strength of these, within a network. 
@@ -68,8 +67,7 @@ const Analysis_NA_page: React.FC = () => {
                 mt: 2,
               }}
               />
-              <Typography variant="body2"
-              color="text.secondary">
+              <Typography >
                 Both POP and RAP collaboration networks exhibit clear community 
                 structures as indicated by the modularity scores significantly higher 
                 than those of their repsective null models. While POP shows slightly higher modularity 
@@ -81,8 +79,7 @@ const Analysis_NA_page: React.FC = () => {
 
               </Typography>
 
-              <Typography variant="body2"
-              color="text.secondary" sx={{mt: 5}}>
+              <Typography  sx={{mt: 5}}>
                 Next we measure degree assortativity, to investigate whether artists with many collaborations - 
                 high node degree, tend to collaborate with similarly well-connected artists. 
                 Simply put to asses whether popular or central artists prefer to collaborate with eachother.  
@@ -118,8 +115,7 @@ const Analysis_NA_page: React.FC = () => {
                 mt: 2,
               }}
               />
-              <Typography variant="body2"
-              color="text.secondary">
+              <Typography >
                 While both genres show significantly less degree disassortativity compared to random networks, 
                 the assortativity remains relatively low overall. This likely reflects the nature of music collaborations, 
                 where highly active artists frequently collaborate with less connected or emerging artists. Although collaborations between highly connected artists do occur, 
@@ -131,8 +127,7 @@ const Analysis_NA_page: React.FC = () => {
                 Popularity and degree   
               </Typography>
             
-              <Typography variant="body2"
-              color="text.secondary">
+              <Typography >
                   We were motivated to try computing assortativity by attribute popularity
                   providing a different perspective compared to degree-assortativity, more reliant on centrality of artists. 
                   This did not show a significant difference, however, it inspired us to look into how the popularity
@@ -166,8 +161,7 @@ const Analysis_NA_page: React.FC = () => {
               </Box>
             </Typography>
             
-            <Typography variant="body2"
-              color="text.secondary" sx={{mt: -7}}>
+            <Typography sx={{mt: -7}}>
               Both POP-NA and RAP-NA show some correlation between popularity and out-degree. 
               However, there is a higher correlation between the two metrics in the RAP network, highlighting that 
               popularity is more tied to number of collaborations, suggesting that popularity might be more 
