@@ -132,7 +132,7 @@ const DataPage: React.FC = () => {
             artists within the United States. To achieve this, we incorporated
             the{" "}
             <a
-              href="https://www.kaggle.com/datasets/jfreyberg/spotify-artist-feature-collaboration-network"
+              href="https://www.kaggle.com/datasets/spoorthiuk/us-top-10k-artists-and-their-popular-songs"
               target="_blank"
               rel="noopener noreferrer"
               style={{ textDecoration: "underline" }}
@@ -225,7 +225,6 @@ const DataPage: React.FC = () => {
           artists associated with each genre.
         </Typography>
       </PaperWrapper>
-
     </Box>
   );
 };
