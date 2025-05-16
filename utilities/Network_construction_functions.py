@@ -133,3 +133,4 @@ def print_top_collaborators(G, n):
     print(f"Top {n} artists with the most collaborations:")
     for rank, (artist, degree) in enumerate(top_collaborators, start=1):
         print(f"{rank}. {artist} — {degree} collaborations")
+    
