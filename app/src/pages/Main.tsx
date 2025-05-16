@@ -309,12 +309,14 @@ const Main: React.FC = () => {
               What's inside the dataset?
             </Typography>
             <Typography variant="body2" color="text.secondary" lineHeight={1.6}>
-              This explains how the Social Network is derived. Nodes are artists
-              and an edge exists between artist A and B if they have previosuly
-              collaborated. Using a Social Network with ~150.000 nodes and
-              ~300.000 edges as a starting point nodes (artists) are filtered
-              out if they are not found in the 10.000 most listend to within the
-              US for the year xx..
+              Clicking on this container provides more detail on how the social
+              network is constructed. Each node represents an artist, and an
+              edge exists between artists A and B if they have previously
+              collaborated. Starting from a large network with approximately
+              150,000 nodes and 300,000 edges, we filter out any artists not
+              found among the 10,000 most-listened-to in the US. The resulting
+              social network includes artists from a wide range of genres,
+              including pop, rock, rap, country, and more.
             </Typography>
           </PaperWrapper>
         </Grid>
@@ -334,8 +336,10 @@ const Main: React.FC = () => {
               Networks
             </Typography>
             <Typography sx={{ mb: 1 }}>
-              Using our dataset we're able to create networks based on the two
-              genres <strong>POP</strong> and <strong>RAP</strong>.
+              Each artist in the graph is associated with a genre property,
+              which lists all the genres the artist is involved in. Using this
+              information, we derived subgraphs for <strong>Pop</strong> and{" "}
+              <strong>Rap</strong>.
             </Typography>
 
             <Box
@@ -350,8 +354,6 @@ const Main: React.FC = () => {
             />
 
             <Typography>
-              The network consists of artists, acting as nodes, and their song
-              collaborations with other artists as edges.
               <br></br>
               <b>Read more </b> by clickling on me 🤓
             </Typography>
@@ -526,10 +528,10 @@ const Main: React.FC = () => {
               sx={{ lineHeight: 1.7 }}
             >
               Up until now we've considered the network and its communities
-                across countries as an entirety. Therefore, to go more in depth
-                with our network analysis, we zoom in on the North American
-                cluster in both graphs. <br></br>
-                This will create two new subgraphs <b>POP-NA</b> & <b>RAP-NA</b>
+              across countries as an entirety. Therefore, to go more in depth
+              with our network analysis, we zoom in on the North American
+              cluster in both graphs. <br></br>
+              This will create two new subgraphs <b>POP-NA</b> & <b>RAP-NA</b>
             </Typography>
 
             <Box
@@ -545,12 +547,12 @@ const Main: React.FC = () => {
                 variant="subtitle2"
                 sx={{ fontWeight: 600, mb: 1, color: "text.primary" }}
               >
-                Creating the networks POP-NA & RAP-NA 
+                Creating the networks POP-NA & RAP-NA
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                Listed below is the new size of the two sub networks: 
-                </Typography>
+                Listed below is the new size of the two sub networks:
+              </Typography>
 
               <Box sx={{ height: 180, width: "100%", mt: 2 }}>
                 <TableContainer>
@@ -594,15 +596,15 @@ const Main: React.FC = () => {
                 </TableContainer>
               </Box>
             </Box>
-          <Typography variant="body2"
-              color="text.secondary"sx={{mt:0}}>
-              This allows us to engage in a more focused network analysis, 
-              where country doesn't serve as a confounder for the communities. <br></br>
-          </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0 }}>
+              This allows us to engage in a more focused network analysis, where
+              country doesn't serve as a confounder for the communities.{" "}
+              <br></br>
+            </Typography>
 
-            <Typography 
+            <Typography
               variant="subtitle2"
-              sx={{ fontWeight: 600, mb: 1, mt: 2,color: "text.primary" }}
+              sx={{ fontWeight: 600, mb: 1, mt: 2, color: "text.primary" }}
             >
               Top 5 Artists by Followers (North America)
             </Typography>
@@ -614,7 +616,8 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  Ed Sheeran<br></br>Ariana Grande<br></br>Billie Eilish<br></br>Justin Bieber<br></br>Taylor Swift
+                  Ed Sheeran<br></br>Ariana Grande<br></br>Billie Eilish
+                  <br></br>Justin Bieber<br></br>Taylor Swift
                 </Typography>
               </Box>
 
@@ -624,7 +627,8 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  Drake<br></br> Eminem<br></br> Bad Bunny<br></br> Post Malone<br></br> XXXTENTACION
+                  Drake<br></br> Eminem<br></br> Bad Bunny<br></br> Post Malone
+                  <br></br> XXXTENTACION
                 </Typography>
               </Box>
             </Box>
@@ -641,15 +645,14 @@ const Main: React.FC = () => {
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Analyzing the North American networks
-              <Typography variant="body2"
-              color="text.secondary">
-                Our network analysis will be based on network science metrics such as assortativity & modularity, 
-                while also relying on correlation between spotify popularity and connectivity. 
+              <Typography variant="body2" color="text.secondary">
+                Our network analysis will be based on network science metrics
+                such as assortativity & modularity, while also relying on
+                correlation between spotify popularity and connectivity.
                 <br></br>
                 <br></br>
                 Click here to read more about our analysis 🧮
               </Typography>
-
               <Box
                 component="img"
                 src={AssortativityPOP}
