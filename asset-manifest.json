@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/02467-Project-assignment/static/css/main.e6c13ad2.css",
-    "main.js": "/02467-Project-assignment/static/js/main.e8fbfb1c.js",
+    "main.js": "/02467-Project-assignment/static/js/main.61e06520.js",
     "static/js/453.d03b33b2.chunk.js": "/02467-Project-assignment/static/js/453.d03b33b2.chunk.js",
     "static/media/Pop_network.png": "/02467-Project-assignment/static/media/Pop_network.cdd463e8f29202d18965.png",
     "static/media/Pop_with_10_communites.png": "/02467-Project-assignment/static/media/Pop_with_10_communites.b86929c87f25595cdda2.png",
@@ -29,11 +29,11 @@
     "static/media/Background_image_good.jpg": "/02467-Project-assignment/static/media/Background_image_good.a7c04d488e78ca9b4eea.jpg",
     "index.html": "/02467-Project-assignment/index.html",
     "main.e6c13ad2.css.map": "/02467-Project-assignment/static/css/main.e6c13ad2.css.map",
-    "main.e8fbfb1c.js.map": "/02467-Project-assignment/static/js/main.e8fbfb1c.js.map",
+    "main.61e06520.js.map": "/02467-Project-assignment/static/js/main.61e06520.js.map",
     "453.d03b33b2.chunk.js.map": "/02467-Project-assignment/static/js/453.d03b33b2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.e8fbfb1c.js"
+    "static/js/main.61e06520.js"
   ]
 }
