@@ -213,11 +213,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Initially using the global dataset we divided the dataset into two
-              subgroups. One containing artists participating mostly in pop and
-              rap, where mostly is defined as the genre which the given artist
-              had most occurences of in his/hers "genre" property from the
-              Global Dataset from Kaggle. Then working on these divded
+              This webpage presents a network analysis of pop and rap culture.
+              It begins with an introduction to a derived dataset that forms the
+              foundation for the rest of the presentation.
             </Typography>
 
             <Typography
@@ -226,11 +224,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Using this divided allowed for doing analysis in a global view
-              where it was found that collaboration most oftenly occured in
-              countries, however mostly in rap not as much in pop. Additionally
-              it was noticable that there existed a North American cluster i.e.
-              one containing artists from north america.
+              Visualisations of social networks in rap and pop are displayed,
+              along with relevant network statistics, in the 'Networks' and
+              'Network Statistics' sections, respectively.
             </Typography>
 
             <Typography
@@ -239,9 +235,11 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Diving into the North American clusters on both pop and rap we
-              carried out further analyiss using WordClouds to figure out music
-              differed which led to finding key differences between rap and pop
+              The analysis then focuses on North American rap and pop cultures
+              to explore genre-specific patterns. This is followed by a
+              quantitative analysis examining modularity and assortativity, as
+              well as text analysis of communities within North American rap and
+              pop.
             </Typography>
           </PaperWrapper>
         </Grid>
