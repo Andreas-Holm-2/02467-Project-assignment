@@ -26,7 +26,7 @@ export const PaperWrapper: React.FC<PaperWrapperProps> = ({
         borderRadius: 3,
         minHeight: 300,
         position: "relative",
-        background: "linear-gradient(135deg, #e8f0ff, #ffe4ec)",
+        background: "linear-gradient(135deg, #e8f0ff,rgb(251, 244, 246))",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         transition: "box-shadow 0.3s",
         ...(isClickable && {

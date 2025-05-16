@@ -1,3 +1,6 @@
 1000random_networks_RAP.pkl
 1000random_networks_POP.pkl
 .DS_Store
+
+explainer.ipynb
+.gitignore

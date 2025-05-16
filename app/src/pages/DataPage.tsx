@@ -19,6 +19,8 @@ import DownloadIcon from "@mui/icons-material/Download";
 import myImage from "../assets/Figure.png";
 import { DownloadDone } from "@mui/icons-material";
 import { PaperWrapper } from "../components/PaperWrapper";
+import rapImage from "../assets/Rap_no_communities.png";
+import popImage from "../assets/Pop_no_communities.png";
 
 const DataPage: React.FC = () => {
   return (
@@ -196,13 +198,13 @@ const DataPage: React.FC = () => {
         </CardContent>
       </PaperWrapper>
 
-      <PaperWrapper elevation={1} sx={{ p: 2 }}>
+      <PaperWrapper sx={{ mb: 4 }}>
         <Typography variant="h6" gutterBottom>
-          Network Visualization
+          Our Constructed Dataset
         </Typography>
         <Typography variant="body1" paragraph>
-          The final network is then constructed as the intersection between the
-          two datasets described above. A visualization i shown below.
+          The final network is constructed as the intersection between the two
+          datasets. A visualization is shown below.
         </Typography>
         <Box
           component="img"
@@ -217,11 +219,13 @@ const DataPage: React.FC = () => {
           }}
         />
         <Typography variant="body1" paragraph>
-          The image also displays the two subset witin the constructed network
-          that we will be focusing on. In particular, it is the the artists with
-          songs within the pop category and rap category.
+          This final dataset forms the foundation for the two networks we will
+          analyze and compare. The image illustrates how the two networks pop
+          and rap are derived as subsets of the full dataset, based on the
+          artists associated with each genre.
         </Typography>
       </PaperWrapper>
+
     </Box>
   );
 };
