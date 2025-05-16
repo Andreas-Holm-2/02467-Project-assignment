@@ -724,10 +724,6 @@ const Main: React.FC = () => {
               background: "linear-gradient(135deg, #e8f0ff,rgb(251, 244, 246))",
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
               transition: "box-shadow 0.3s",
-              cursor: "pointer",
-              "&:hover": {
-                filter: "brightness(0.95)",
-              },
               display: "flex",
               justifyContent: "center",
               verticalAlign: "center",
