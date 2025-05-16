@@ -36,6 +36,9 @@ import WordCloudPreview from "../components/WordCloudPreview";
 import WordCloud from "../components/WordCloud";
 import pop10Image from "../assets/Pop_with_10_communites.png";
 
+import CommunityCountriesRap from "../assets/Rap_network.png";
+import CommunityCountriesPop from "../assets/Pop_network.png";
+
 const DivideSection = () => {
   return (
     <Box sx={{ px: 6, mt: 6 }}>
@@ -446,18 +449,47 @@ const Main: React.FC = () => {
               Communities by artist nationality
             </Typography>
             <Box
-              component="img"
-              src={CommunityCountryImage}
-              alt="Communities by country"
               sx={{
-                width: "100%",
-                maxHeight: 400,
-                objectFit: "contain",
-                borderRadius: 2,
-                backgroundColor: "#f3f4f6", // optional
-                mt: 2,
+                display: "flex",
+                gap: 2,
+                flexWrap: "wrap",
+                justifyContent: "center",
               }}
-            />
+            >
+              {/* Left Column - Pop */}
+              <Box sx={{ maxWidth: 400, textAlign: "center" }}>
+                <Typography variant="subtitle1" gutterBottom>
+                  Pop network Communities by country
+                </Typography>
+                <Box
+                  component="img"
+                  src={CommunityCountriesPop}
+                  alt="Pop Collaboration Network"
+                  sx={{
+                    width: "100%",
+                    borderRadius: 2,
+                    backgroundColor: "#f3f4f6",
+                  }}
+                />
+              </Box>
+
+              {/* Right Column - Rap */}
+              <Box sx={{ maxWidth: 400, textAlign: "center" }}>
+                <Typography variant="subtitle1" gutterBottom>
+                  Rap network Communities by country
+                </Typography>
+                <Box
+                  component="img"
+                  src={CommunityCountriesRap}
+                  alt="Rap Collaboration Network"
+                  sx={{
+                    width: "100%",
+                    borderRadius: 2,
+                    backgroundColor: "#f3f4f6",
+                  }}
+                />
+              </Box>
+            </Box>
 
             <Typography
               variant="body2"
