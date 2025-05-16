@@ -30,6 +30,7 @@ import AssortativityRAP from "../assets/assort_rap.png";
 import ModularityPOP from "../assets/mod_pop.png";
 import ModularityRAP from "../assets/mod_rap.png";
 import FrontGraph from "../assets/NIcegraph.png";
+import FrontGraph2 from "../assets/Pop_graph_for_front_page.png";
 import Agenda from "../components/Agenda";
 import WordCloudPreview from "../components/WordCloudPreview";
 import WordCloud from "../components/WordCloud";
@@ -334,7 +335,7 @@ const Main: React.FC = () => {
             }}
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-              Network
+              Networks
             </Typography>
             <Typography sx={{ mb: 1 }}>
               Using our dataset we're able to create networks based on the two
@@ -343,7 +344,7 @@ const Main: React.FC = () => {
 
             <Box
               component="img"
-              src={FrontGraph}
+              src={FrontGraph2}
               alt="Rap Collaboration Network"
               sx={{
                 width: "100%",
@@ -384,23 +385,23 @@ const Main: React.FC = () => {
                 <TableBody>
                   <TableRow>
                     <TableCell>Number of nodes</TableCell>
-                    <TableCell align="right">4161</TableCell>
                     <TableCell align="right">1149</TableCell>
+                    <TableCell align="right">4161</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Number of edges</TableCell>
-                    <TableCell align="right">13.698</TableCell>
                     <TableCell align="right">6860</TableCell>
+                    <TableCell align="right">13,698</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Density</TableCell>
-                    <TableCell align="right">0.00158</TableCell>
                     <TableCell align="right">0.0104</TableCell>
+                    <TableCell align="right">0.00158</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Number of isolated nodes</TableCell>
-                    <TableCell align="right">758</TableCell>
                     <TableCell align="right">143</TableCell>
+                    <TableCell align="right">758</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Is connected</TableCell>
@@ -409,28 +410,28 @@ const Main: React.FC = () => {
                   </TableRow>
                   <TableRow>
                     <TableCell>Number of connected components</TableCell>
-                    <TableCell align="right">801</TableCell>
                     <TableCell align="right">153</TableCell>
+                    <TableCell align="right">801</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Size of largest component</TableCell>
-                    <TableCell align="right">3286</TableCell>
                     <TableCell align="right">961</TableCell>
+                    <TableCell align="right">3286</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell>Average Degree(largest component)</TableCell>
-                    <TableCell align="right">6.58</TableCell>
+                    <TableCell>Average Degree (largest component)</TableCell>
                     <TableCell align="right">11.94</TableCell>
+                    <TableCell align="right">6.58</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Median Degree</TableCell>
+                    <TableCell align="right">5.00</TableCell>
                     <TableCell align="right">3.00</TableCell>
-                    <TableCell align="right">5.0</TableCell>
                   </TableRow>
                   <TableRow>
                     <TableCell>Maximum Degree</TableCell>
-                    <TableCell align="right">162</TableCell>
                     <TableCell align="right">104</TableCell>
+                    <TableCell align="right">162</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
