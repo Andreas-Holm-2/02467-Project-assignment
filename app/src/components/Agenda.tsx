@@ -28,7 +28,6 @@ const Agenda = () => {
     { label: "Zooming in on North American Artists!" },
     { label: "Analyzing the North American networks" },
     { label: "Text Analysis" },
-    { label: "Summarized Results" },
   ];
 
   return (
