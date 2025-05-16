@@ -91,7 +91,7 @@ const DataPage: React.FC = () => {
                     <TableCell>
                       <Button
                         component="a"
-                        href="/downloads/nodes.csv"
+                        href="https://andreas-holm-2.github.io/02467-Project-assignment/downloads/nodes.csv"
                         download
                         color="inherit"
                         startIcon={<DownloadIcon />}
@@ -110,7 +110,7 @@ const DataPage: React.FC = () => {
                     <TableCell>
                       <Button
                         component="a"
-                        href="/downloads/edges.csv"
+                        href="https://andreas-holm-2.github.io/02467-Project-assignment/downloads/edges.csv"
                         download
                         color="inherit"
                         startIcon={<DownloadIcon />}
@@ -189,7 +189,7 @@ const DataPage: React.FC = () => {
                     <TableCell>
                       <Button
                         component="a"
-                        href="/downloads/Artists.csv"
+                        href="https://andreas-holm-2.github.io/02467-Project-assignment/downloads/Artists.csv"
                         download
                         color="inherit"
                         startIcon={<DownloadIcon />}
