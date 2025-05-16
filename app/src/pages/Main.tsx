@@ -502,10 +502,9 @@ const Main: React.FC = () => {
             >
               The Rap network reveals clear and well-separated nationality
               clusters. Distinct groups of <em>North American</em>,{" "}
-              <em>Portuguese</em>, <em>French</em>, <em>Dutch</em>, and{" "}
-              <em>Polish</em> artists emerge, each forming their own
-              collaboration communities. This suggests that Rap artists tend to
-              collaborate primarily within national borders.
+              <em>Spanish/South American</em>, <em>Scandinavian</em>,{" "}
+              <em>Asian</em>, and <em>Dutch</em> artists emerge, each forming
+              their own collaboration communities.
             </Typography>
 
             <Typography
@@ -514,13 +513,11 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              In contrast, the Pop network includes a large{" "}
-              <em>International</em> cluster, reflecting a broader pattern of
-              cross-border collaboration. One possible explanation for this
-              difference is the role of language: in Rap, linguistic mastery is
-              central — wordplay, rhythm, and local cultural references are
-              often defining features. As a result, collaboration may naturally
-              stay within shared-language regions.
+              Similarly, the Pop network displays well-defined nationality
+              clusters. Notable communities include <em>North American</em>,{" "}
+              <em>Portuguese</em>, <em>German/Turkish</em>, <em>Polish</em>, and{" "}
+              <em>Italian</em> artists, each contributing to the genre's
+              collaborative structure.
             </Typography>
 
             <Typography
@@ -529,9 +526,10 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Pop, on the other hand, appears to be more globally integrated,
-              with nationality playing a weaker role in determining
-              collaboration patterns.
+              These patterns highlight how cultural and linguistic ties often
+              shape collaboration networks, suggesting that geography and shared
+              heritage continue to play a significant role in the structure of
+              global music communities.
             </Typography>
 
             <Typography
