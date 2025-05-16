@@ -170,7 +170,7 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Music is more than sound — it's culture, identity, and connection.
+              Music is more than sound - it's culture, identity, and connection.
               We were curious: do Pop and Rap artists collaborate differently,
               and what does that reveal about their communities?
             </Typography>
@@ -184,8 +184,8 @@ const Main: React.FC = () => {
               Driven by this question, we built a dataset of North American
               artists and mapped their collaborations as a network. Each link
               tells a story of artistic partnership, and through these
-              connections, we explore how two major genres shape — and are
-              shaped by — collaboration.
+              connections, we explore how two major genres shape - and are
+              shaped by - collaboration.
             </Typography>
 
             <Typography
@@ -195,7 +195,7 @@ const Main: React.FC = () => {
               sx={{ lineHeight: 1.7 }}
             >
               Starting from a global dataset of over 150,000 artists, we refined
-              our focus to Pop and Rap in North America — two genres often said
+              our focus to Pop and Rap in North America - two genres often said
               to differ in how artists connect. This let us ask: What defines a
               musical community, and how do collaboration patterns reflect
               cultural differences?
@@ -213,11 +213,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Initially using the global dataset we divided the dataset into two
-              subgroups. One containing artists participating mostly in pop and
-              rap, where mostly is defined as the genre which the given artist
-              had most occurences of in his/hers "genre" property from the
-              Global Dataset from Kaggle. Then working on these divded
+              This webpage presents a network analysis of pop and rap culture.
+              It begins with an introduction to a derived dataset that forms the
+              foundation for the rest of the presentation.
             </Typography>
 
             <Typography
@@ -226,11 +224,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Using this divided allowed for doing analysis in a global view
-              where it was found that collaboration most oftenly occured in
-              countries, however mostly in rap not as much in pop. Additionally
-              it was noticable that there existed a North American cluster i.e.
-              one containing artists from north america.
+              Visualisations of social networks in rap and pop are displayed,
+              along with relevant network statistics, in the 'Networks' and
+              'Network Statistics' sections, respectively.
             </Typography>
 
             <Typography
@@ -239,9 +235,11 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Diving into the North American clusters on both pop and rap we
-              carried out further analyiss using WordClouds to figure out music
-              differed which led to finding key differences between rap and pop
+              The analysis then focuses on North American rap and pop cultures
+              to explore genre-specific patterns. This is followed by a
+              quantitative analysis examining modularity and assortativity, as
+              well as text analysis of communities within North American rap and
+              pop.
             </Typography>
           </PaperWrapper>
         </Grid>
@@ -308,17 +306,15 @@ const Main: React.FC = () => {
               gutterBottom
               sx={{ fontWeight: 600 }}
             >
-              What’s inside the dataset?
+              What's inside the dataset?
             </Typography>
             <Typography variant="body2" color="text.secondary" lineHeight={1.6}>
-              Mangler, skal skrives så man får et hurtigt overblik over
-              datasættet her og hvis man vil uddybe sit svar kan man hoppe
-              niveauet ind.
-              {/* Curious about how the dataset was built? Click to explore how the
-              data was collected, what assumptions were made, and how we cleaned
-              and structured it. You'll also find a breakdown of key dataset
-              properties like node types, edge definitions, and genre
-              categorization. */}
+              This explains how the Social Network is derived. Nodes are artists
+              and an edge exists between artist A and B if they have previosuly
+              collaborated. Using a Social Network with ~150.000 nodes and
+              ~300.000 edges as a starting point nodes (artists) are filtered
+              out if they are not found in the 10.000 most listend to within the
+              US for the year xx..
             </Typography>
           </PaperWrapper>
         </Grid>
@@ -529,10 +525,11 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              From this point onward, we focus on a subset of the network — the{" "}
-              <em>North American</em> clusters. This allows us to better examine
-              collaboration patterns specific to Pop and Rap in a shared
-              cultural and linguistic context.
+              Up until now we've considered the network and its communities
+                across countries as an entirety. Therefore, to go more in depth
+                with our network analysis, we zoom in on the North American
+                cluster in both graphs. <br></br>
+                This will create two new subgraphs <b>POP-NA</b> & <b>RAP-NA</b>
             </Typography>
 
             <Box
@@ -548,12 +545,12 @@ const Main: React.FC = () => {
                 variant="subtitle2"
                 sx={{ fontWeight: 600, mb: 1, color: "text.primary" }}
               >
-                Node and Edge Counts
+                Creating the networks POP-NA & RAP-NA 
               </Typography>
 
               <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                The first number represents nodes; the second represents edges.
-              </Typography>
+                Listed below is the new size of the two sub networks: 
+                </Typography>
 
               <Box sx={{ height: 180, width: "100%", mt: 2 }}>
                 <TableContainer>
@@ -564,43 +561,48 @@ const Main: React.FC = () => {
                           <strong>Genre</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Nodes (Before Zoom)</strong>
+                          <strong>Nodes Before Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Edges (Before Zoom)</strong>
+                          <strong>Edges Before Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Nodes (NA)</strong>
+                          <strong>Nodes After Zoom</strong>
                         </TableCell>
                         <TableCell align="right">
-                          <strong>Edges (NA)</strong>
+                          <strong>Edges After zoom</strong>
                         </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       <TableRow>
                         <TableCell>Rap</TableCell>
-                        <TableCell align="right">8,756</TableCell>
-                        <TableCell align="right">42,297</TableCell>
-                        <TableCell align="right">1,843</TableCell>
-                        <TableCell align="right">9,312</TableCell>
+                        <TableCell align="right">1149</TableCell>
+                        <TableCell align="right">6860</TableCell>
+                        <TableCell align="right">349</TableCell>
+                        <TableCell align="right">3305</TableCell>
                       </TableRow>
                       <TableRow>
                         <TableCell>Pop</TableCell>
-                        <TableCell align="right">7,210</TableCell>
-                        <TableCell align="right">36,512</TableCell>
-                        <TableCell align="right">2,156</TableCell>
-                        <TableCell align="right">10,021</TableCell>
+                        <TableCell align="right">4161</TableCell>
+                        <TableCell align="right">13.698</TableCell>
+                        <TableCell align="right">953</TableCell>
+                        <TableCell align="right">5321</TableCell>
                       </TableRow>
                     </TableBody>
                   </Table>
                 </TableContainer>
               </Box>
             </Box>
+          <Typography variant="body2"
+              color="text.secondary"sx={{mt:0}}>
+              This allows us to engage in a more focused network analysis, 
+              where country doesn't serve as a confounder for the communities. <br></br>
+          </Typography>
 
-            <Typography
+            <Typography 
               variant="subtitle2"
-              sx={{ fontWeight: 600, mb: 1, color: "text.primary" }}
+              sx={{ fontWeight: 600, mb: 1, mt: 2,color: "text.primary" }}
             >
               Top 5 Artists by Followers (North America)
             </Typography>
@@ -612,7 +614,7 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  <span style={{ color: "red" }}>MANGLER</span>.
+                  Ed Sheeran<br></br>Ariana Grande<br></br>Billie Eilish<br></br>Justin Bieber<br></br>Taylor Swift
                 </Typography>
               </Box>
 
@@ -622,7 +624,7 @@ const Main: React.FC = () => {
                 </Typography>
                 {/* Later insert a list or card component here */}
                 <Typography variant="caption" color="text.secondary">
-                  <span style={{ color: "red" }}>MANGLER</span>.
+                  Drake<br></br> Eminem<br></br> Bad Bunny<br></br> Post Malone<br></br> XXXTENTACION
                 </Typography>
               </Box>
             </Box>
@@ -639,15 +641,15 @@ const Main: React.FC = () => {
           >
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
               Analyzing the North American networks
-              <Typography>
-                Up until now we've considered the network and its communities
-                across countries as an entirety. Therefore, to go more in depth
-                with our network analysis, we zoom in on the North American
-                cluster in both graphs.
+              <Typography variant="body2"
+              color="text.secondary">
+                Our network analysis will be based on network science metrics such as assortativity & modularity, 
+                while also relying on correlation between spotify popularity and connectivity. 
+                <br></br>
+                <br></br>
+                Click here to read more about our analysis 🧮
               </Typography>
-              <Typography>
-                Click here to read more about our analysis :)
-              </Typography>
+
               <Box
                 component="img"
                 src={AssortativityPOP}

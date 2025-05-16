@@ -22,12 +22,11 @@ const Agenda = () => {
     { label: "Motivation" },
     { label: "Introduction" },
     { label: "Dataset" },
-    { label: "Network" },
-    { label: "Zooming in on North American Artists" },
-    { label: "North America Network" },
-    { label: "Word Clouds" },
-    { label: "Discussion" },
-    { label: "Summarized Results" },
+    { label: "Networks" },
+    { label: "Network Statistics" },
+    { label: "Zooming in on North American Artists!" },
+    { label: "Analyzing the North American networks" },
+    { label: "Text Analysis" },
   ];
 
   return (
