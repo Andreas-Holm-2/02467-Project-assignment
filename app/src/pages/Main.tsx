@@ -170,7 +170,7 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Music is more than sound — it's culture, identity, and connection.
+              Music is more than sound - it's culture, identity, and connection.
               We were curious: do Pop and Rap artists collaborate differently,
               and what does that reveal about their communities?
             </Typography>
