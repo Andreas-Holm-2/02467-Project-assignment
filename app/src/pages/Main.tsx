@@ -513,11 +513,10 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              Similarly, the Pop network displays well-defined nationality
-              clusters. Notable communities include <em>North American</em>,{" "}
+              The Pop network shows well-defined nationality clusters as well.
+              Notable communities include <em>North American</em>,{" "}
               <em>Portuguese</em>, <em>German/Turkish</em>, <em>Polish</em>, and{" "}
-              <em>Italian</em> artists, each contributing to the genre's
-              collaborative structure.
+              <em>Italian</em> artists.
             </Typography>
 
             <Typography
@@ -526,10 +525,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              These patterns highlight how cultural and linguistic ties often
-              shape collaboration networks, suggesting that geography and shared
-              heritage continue to play a significant role in the structure of
-              global music communities.
+              These patterns highlight how cultural and linguistic commonalities
+              shape collaboration networks, suggesting that geography plays a
+              significant role in the structure of global music communities.
             </Typography>
 
             <Typography
@@ -538,9 +536,9 @@ const Main: React.FC = () => {
               paragraph
               sx={{ lineHeight: 1.7 }}
             >
-              At this scale, the network primarily highlights national
-              differences. To better explore genre-specific patterns, we zoom in
-              on the <em>North American</em> clusters.
+              Since the network primarily highlights national differences, we
+              thought it would be interesting to we zoom in on the largest
+              clusters in each network; the <em>North American</em>-ones.
             </Typography>
           </PaperWrapper>
         </Grid>
